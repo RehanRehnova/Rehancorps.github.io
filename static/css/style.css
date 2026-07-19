@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REHNOVA</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <style>
+ html {
+    scroll-behavior: smooth;
+  }
     * {
       margin: 0;
       padding: 0;
@@ -254,8 +248,6 @@
     }
 
     
-  </style>
-  <style>
 /* HERO - WELL LAID OUT */
 .hero{
     display: grid;
@@ -416,122 +408,7 @@ position:relative;min-height:100vh;padding:68px 28px 40px;display:flex;flex-dire
 .term__b b{color:var(--green);font-weight:500}
 
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-</style>
-</head>
 
-<body>
-
-  <header class="header">
-    <nav class="nav">
-      <a href="#" class="nav__logo">
-        <!-- PUT YOUR REAL LOGO PATH HERE -->
-        <img src="https://i.ibb.co/0jZ3Qy4k/rehnova-logo-white.png" alt="REHNOVA" onerror="this.style.display='none'">
-        <div class="nav__logo-fallback">REH<span>NOVA</span></div>
-      </a>
-      <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#skills" class="nav__link">Expertise</a></li>
-          <li><a href="#contact" class="nav__link nav__link--pill">Contact</a></li>
-        </ul>
-        <div class="nav__social">
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <button class="nav__toggle" id="nav-toggle"><span></span><span></span></button>
-    </nav>
-  </header>
-<script>
-    const t = document.getElementById('nav-toggle'), m = document.getElementById('nav-menu');
-    t.onclick = () => { t.classList.toggle('active'); m.classList.toggle('show') };
-    document.querySelectorAll('.nav__link').forEach(a => a.onclick = () => { t.classList.remove('active'); m.classList.remove('show') });
-  </script>
-
-<body>
-<section class="hero">
-  
-  <div class="hero__center">
-    <div class="hero__grid">
-      
-      <div class="hero__left">
-        <div class="hero__stack">
-          <div class="glitch" id="glitch">
-            <span class="s1">REHNOVA</span>
-          </div>
-          <span class="s2">SECURITY</span>
-          <span class="s3">OPS</span>
-          <span class="s4">PLATFORM</span>
-        </div>
-        <p class="hero__desc ">
-          Offensive operator, tool smith & exploit dev. I break into things that matter — <b>AD, Cloud, Infra</b> — then automate the chaos into one shell.
-        </p>
-      </div>
-
-      <div class="hero__right flex justify-center items-end self-stretch">
-  <div class="photo relative w-full max-w- aspect-[4/4.8] rounded-t- overflow-hidden border-b-0 self-end">
-    <img src="YOUR_HEADSHOT.jpg" alt="Operator" class="w-full h-full object-cover object-top ">
-  </div>
-</div>
-
-    </div>
-  </div>
-  
-</section>
-
-<div class="faded-line"></div>
-
-<style>
-.faded-line{
-  height:1px;
-  width:100%;
-  background:linear-gradient(90deg,
-    transparent 0%,
-    rgba(255,255,255,.06) 20%,
-    rgba(255, 255, 255, 0.9) 50%,
-    rgba(255,255,255,.06) 80%,
-    transparent 100%
-  );
-}
-</style>
-
-<section class="about" id="about">
-  <div class="about__inner">
-    <div>
-      
-      <h2 class="about__h2">BREAK STUFF.<br><em>SECURE IT.</em><br><span>AUTOMATE THE REST.</span></h2>
-      <p class="about__p">
-        I'm <strong>Rehan</strong> — behind REHNOVA. Not a compliance scanner guy. I build real attack paths, chain logic bugs to RCE, and turn 8-hour manual grind into a single binary.<br><br>
-        <strong style="color:var(--green)">Mission:</strong> One platform to rule the kill-chain — recon → exploit → post → report. No bloat. Just ops.
-      </p>
-      <!-- TERMINAL -->
-<div class="term" id="term-wrap">
-  <div class="term__h">
-    <div class="term__dots"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></div>
-    <div>rehnova — zsh — 80x24</div>
-    <div style="width:20px"></div>
-  </div>
-  <div class="term__body" id="term-body">
-    <div class="term__line">Welcome. Type <span style="color:#00E08F">help</span> to begin.</div>
-  </div>
-  <div class="term__input-row">
-    <span>rehnova:~$</span>
-    <input id="term-input" autocomplete="off" spellcheck="false" placeholder="type a command...">
-  </div>
-</div>
-
-<div class="chips">
-  <button data-cmd="whoami">whoami</button>
-  <button data-cmd="about">about</button>
-  <button data-cmd="scope">scope</button>
-  <button data-cmd="stack">stack</button>
-  <button data-cmd="mission">mission</button>
-  <button data-cmd="contact">contact</button>
-</div>
-
-<style>
 .term{background:#0a0a0a;border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:380px;max-width:520px}
 .term__h{height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.3);background:rgba(255,255,255,.02)}
 .term__dots{display:flex;gap:6px}.term__dots i{width:8px;height:8px;border-radius:50%;display:block}
@@ -542,147 +419,7 @@ position:relative;min-height:100vh;padding:68px 28px 40px;display:flex;flex-dire
 .chips{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
 .chips button{padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-family:'JetBrains Mono',monospace;font-size:10px;cursor:pointer}
 .chips button:hover{color:#fff;background:rgba(255,255,255,.07)}
-</style>
 
-<script>
-const body=document.getElementById('term-body');
-const input=document.getElementById('term-input');
-
-const cmds={
-help:`Available:
-  whoami   — who is behind REHNOVA
-  about    — what I do
-  scope    — where I operate
-  stack    — tools & languages
-  mission  — why REHNOVA exists
-  contact  — how to reach
-  clear    — clear terminal`,
-
-whoami:`Rehan
-Offensive security operator. Builder of REHNOVA.
-Based in ops, not compliance.`,
-
-about:`I'm an offensive operator. I break paths that matter — AD, Entra ID, cloud, infra — then automate the manual grind.
-
-REHNOVA came from that gap: real engagements need real tooling.`,
-
-scope:`AD / Entra ID / Cloud / Infra
-Identity is the perimeter.`,
-
-stack:`Go, Rust, C, Python, PowerShell
-ADCS, Kerberos, OIDC, loaders, EDR evasion, C2`,
-
-mission:`One platform to handle the kill-chain:
-recon → exploit → post → report.
-No bloat. Just ops.`,
-
-contact:`rehnova@ops.io — Selective engagements.`
-};
-
-function print(html){
-  const d=document.createElement('div');
-  d.style.marginBottom='10px';
-  d.innerHTML=html.replace(/\n/g,'<br>');
-  body.appendChild(d);
-  body.scrollTop=body.scrollHeight;
-}
-
-function run(raw){
-  const c=raw.trim().toLowerCase();
-  if(!c) return;
-  print(`<span style="color:rgba(255,255,255,.25)">rehnova:~$</span> <span style="color:#fff">${raw}</span>`);
-  if(c==='clear'){body.innerHTML='';return}
-  if(cmds[c]){print(cmds[c])}
-  else{print(`command not found: ${c}. Type help.`)}
-}
-
-input.addEventListener('keydown',e=>{ if(e.key==='Enter'){ run(input.value); input.value=''; } });
-document.querySelectorAll('[data-cmd]').forEach(b=>b.addEventListener('click',()=>{ run(b.dataset.cmd); input.focus(); }));
-document.getElementById('term-wrap').addEventListener('click',()=>input.focus());
-
-// auto
-setTimeout(()=>run('whoami'),400);
-</script>
-    </div>
-    <div>
-      <div class="cards" id="ops">
-        <div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div>
-       <div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div><div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div><div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-
-<div class="faded-line"></div>
-
-<style>
-.faded-line{
-  height:1px;
-  width:100%;
-  background:linear-gradient(90deg,
-    transparent 0%,
-    rgba(255,255,255,.06) 20%,
-    rgba(255, 255, 255, 0.9) 50%,
-    rgba(255,255,255,.06) 80%,
-    transparent 100%
-  );
-}
-</style>
-
-<section class="contact" id="contact">
-  <div class="contact__inner">
-    <div class="contact__left">
-      <h2 class="contact__h2">SECURE<br>CHANNEL.</h2>
-    </div>
-
-    <div style="background: rgba(4,4,4,0.8);backdrop-filter: blur(10px);border-radius:12px; padding:20px; border: 1px solid rgba(255,255,255,.1);" class="contact__right">
-      <a class="c-row" href="mailto:rehnova@proton.me" data-copy="rehnova@proton.me">
-        <div class="c-row__l">
-          <div class="c-ic"><i class="fa-solid fa-envelope"></i></div>
-          <div>
-            <div class="c-t">Proton Mail</div>
-            <div class="c-v">rehnova@proton.me</div>
-          </div>
-        </div>
-        <div class="c-a">↗</div>
-      </a>
-
-      <div class="c-coffee">
-        <div class="c-coffee__label">Buy me a coffee — gift / support</div>
-        <div class="c-wallet" data-copy="bc1q...YOUR_BTC">
-          <span>BTC</span><p>bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p><i>copy</i>
-        </div>
-        <div class="c-wallet" data-copy="0x...YOUR_ETH">
-          <span>ETH</span><p>0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p><i>copy</i>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
 .contact{position:relative;background:#060606;padding:80px 28px;border-top:1px solid rgba(255,255,255,.06)}
 .contact::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.06) 20%,rgba(255,255,255,.18) 50%,rgba(255,255,255,.06) 80%,transparent 100%)}
 @media(min-width:900px){.contact{padding:90px 48px}}
@@ -719,21 +456,3 @@ setTimeout(()=>run('whoami'),400);
 .c-wallet span{font-family:'JetBrains Mono';font-size:10px;font-weight:700;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:4px 8px;border-radius:6px;min-width:42px;text-align:center}
 .c-wallet p{flex:1;font-family:'JetBrains Mono';font-size:11px;color:rgba(255,255,255,.4);word-break:break-all}
 .c-wallet i{font-family:'JetBrains Mono';font-style:normal;font-size:10px;color:rgba(255,255,255,.25);text-transform:uppercase}
-</style>
-
-<div id="c-copied" style="position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#111;border:1px solid rgba(255,255,255,.1);padding:10px 14px;border-radius:100px;font-family:'JetBrains Mono';font-size:11px;color:#fff;opacity:0;pointer-events:none;transition:.3s;z-index:300">copied</div>
-<script>
-(function(){
-  const toast=document.getElementById('c-copied');
-  document.querySelectorAll('[data-copy]').forEach(r=>{
-    r.addEventListener('click',()=>{ 
-      navigator.clipboard.writeText(r.getAttribute('data-copy'));
-      toast.style.opacity=1;setTimeout(()=>toast.style.opacity=0,1400);
-    });
-  });
-})();
-</script>
-
-</body>
-
-</html>
