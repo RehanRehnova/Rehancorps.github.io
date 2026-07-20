@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.title }} — rehnova tools{% endblock %}
+{% block content %}
+{% include 'tools/_shell_start.html' %}
+
+<div class="tool-panel">
+  <p class="tool-disclaimer">
+    Inspection only — signatures are <strong>not</strong> verified. Never paste production secrets into untrusted environments.
+  </p>
+  <div class="tool-field">
+    <label for="jwt-in">JWT</label>
+    <textarea id="jwt-in" rows="4" spellcheck="false" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.…"></textarea>
+  </div>
+  <div class="tool-actions">
+    <button type="button" class="tool-btn tool-btn--solid" id="jwt-run">Decode</button>
+    <button type="button" class="tool-btn" id="jwt-clear">Clear</button>
+  </div>
+  <div class="tool-grid-2">
+    <div class="tool-field">
+      <label>Header</label>
+      <pre class="tool-out tool-out--tall" id="jwt-header">—</pre>
+    </div>
+    <div class="tool-field">
+      <label>Payload</label>
+      <pre class="tool-out tool-out--tall" id="jwt-payload">—</pre>
+    </div>
+  </div>
+  <p class="tool-hint" id="jwt-meta"></p>
+</div>
+
+{% include 'tools/_shell_end.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-jwt.js') }}"></script>
+{% endblock %}

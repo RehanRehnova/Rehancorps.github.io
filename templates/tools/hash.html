@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.title }} — rehnova tools{% endblock %}
+{% block content %}
+{% include 'tools/_shell_start.html' %}
+
+<div class="tool-panel">
+  <div class="tool-field">
+    <label for="hash-in">Input</label>
+    <textarea id="hash-in" rows="5" placeholder="Text to hash…" spellcheck="false"></textarea>
+  </div>
+  <div class="tool-actions">
+    <button type="button" class="tool-btn tool-btn--solid" id="hash-run">Compute digests</button>
+    <button type="button" class="tool-btn" id="hash-clear">Clear</button>
+  </div>
+  <div class="tool-results" id="hash-out">
+    <div class="tool-result"><span>SHA-1</span><code data-alg="SHA-1">—</code><button type="button" class="tool-mini" data-copy-from>copy</button></div>
+    <div class="tool-result"><span>SHA-256</span><code data-alg="SHA-256">—</code><button type="button" class="tool-mini" data-copy-from>copy</button></div>
+    <div class="tool-result"><span>SHA-384</span><code data-alg="SHA-384">—</code><button type="button" class="tool-mini" data-copy-from>copy</button></div>
+    <div class="tool-result"><span>SHA-512</span><code data-alg="SHA-512">—</code><button type="button" class="tool-mini" data-copy-from>copy</button></div>
+  </div>
+  <div class="tool-field" style="margin-top:28px">
+    <label for="hash-id">Identify hash (by length)</label>
+    <input id="hash-id" type="text" placeholder="Paste a hex digest…" spellcheck="false">
+    <p class="tool-hint" id="hash-id-out">—</p>
+  </div>
+</div>
+
+{% include 'tools/_shell_end.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-hash.js') }}"></script>
+{% endblock %}

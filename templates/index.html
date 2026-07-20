@@ -1,52 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REHNOVA</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+{% block title %}rehnova offsec ops{% endblock %}
 
-<body>
-
-  <header class="header">
-    <nav class="nav">
-      <a href="#" class="nav__logo">
-        <!-- PUT YOUR REAL LOGO PATH HERE -->
-        <img src="https://i.ibb.co/0jZ3Qy4k/rehnova-logo-white.png" alt="REHNOVA" onerror="this.style.display='none'">
-        <div class="nav__logo-fallback">REH<span>NOVA</span></div>
-      </a>
-      <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#skills" class="nav__link">Expertise</a></li>
-          <li><a href="#contact" class="nav__link nav__link--pill">Contact</a></li>
-        </ul>
-        <div class="nav__social">
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <button class="nav__toggle" id="nav-toggle"><span></span><span></span></button>
-    </nav>
-  </header>
-<script>
-    const t = document.getElementById('nav-toggle'), m = document.getElementById('nav-menu');
-    t.onclick = () => { t.classList.toggle('active'); m.classList.toggle('show') };
-    document.querySelectorAll('.nav__link').forEach(a => a.onclick = () => { t.classList.remove('active'); m.classList.remove('show') });
-  </script>
-
-<body>
+{% block content %}
 <section class="hero">
-  
+  <!-- Dragon emerges from the dark field of the hero itself -->
+  <div class="hero__dragon" aria-hidden="true">
+    <img
+      src="{{ url_for('static', filename='images/hero-dragon.jpg') }}"
+      alt=""
+      class="hero__dragon-img"
+      decoding="async"
+    >
+    <span class="hero__dragon-mist"></span>
+  </div>
+
   <div class="hero__center">
     <div class="hero__grid">
-      
+
       <div class="hero__left">
         <div class="hero__stack">
           <div class="glitch" id="glitch">
@@ -56,164 +27,103 @@
           <span class="s3">OPS</span>
           <span class="s4">PLATFORM</span>
         </div>
-        <p class="hero__desc ">
-          Offensive operator, tool smith & exploit dev. I break into things that matter — <b>AD, Cloud, Infra</b> — then automate the chaos into one shell.
+        <p class="hero__desc">
+          Offensive operator, tool smith &amp; exploit dev. I break into things that matter — <b>AD, Cloud, Infra</b> — then automate the chaos into one shell.
         </p>
+        <div class="hero__actions">
+          <a href="{{ url_for('tools') }}" class="metal-svc" aria-label="Open public tools">
+            <span class="metal-svc__edge" aria-hidden="true"></span>
+            <span class="metal-svc__label">Tools</span>
+            <span class="metal-svc__mark" aria-hidden="true">//</span>
+            <span class="metal-svc__go" aria-hidden="true">→</span>
+            <span class="metal-svc__sheen" aria-hidden="true"></span>
+          </a>
+        </div>
       </div>
 
-      <div class="hero__right flex justify-center items-end self-stretch">
-  <div class="photo relative w-full max-w- aspect-[4/4.8] rounded-t- overflow-hidden border-b-0 self-end">
-    <img src="YOUR_HEADSHOT.jpg" alt="Operator" class="w-full h-full object-cover object-top ">
-  </div>
-</div>
+      <!-- Spacer so layout keeps balance; dragon is layered in the hero field -->
+      <div class="hero__right hero__right--void" aria-hidden="true"></div>
 
     </div>
   </div>
-  
 </section>
 
-<div class="faded-line"></div>
-
-<style>
-.faded-line{
-  height:1px;
-  width:100%;
-  background:linear-gradient(90deg,
-    transparent 0%,
-    rgba(255,255,255,.06) 20%,
-    rgba(255, 255, 255, 0.9) 50%,
-    rgba(255,255,255,.06) 80%,
-    transparent 100%
-  );
-}
-</style>
+<div class="faded-line" aria-hidden="true"></div>
 
 <section class="about" id="about">
   <div class="about__inner">
     <div>
-      
       <h2 class="about__h2">BREAK STUFF.<br><em>SECURE IT.</em><br><span>AUTOMATE THE REST.</span></h2>
       <p class="about__p">
         I'm <strong>Rehan</strong> — behind REHNOVA. Not a compliance scanner guy. I build real attack paths, chain logic bugs to RCE, and turn 8-hour manual grind into a single binary.<br><br>
         <strong style="color:var(--green)">Mission:</strong> One platform to rule the kill-chain — recon → exploit → post → report. No bloat. Just ops.
       </p>
-      <!-- TERMINAL -->
-<div class="term" id="term-wrap">
-  <div class="term__h">
-    <div class="term__dots"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></div>
-    <div>rehnova — zsh — 80x24</div>
-    <div style="width:20px"></div>
-  </div>
-  <div class="term__body" id="term-body">
-    <div class="term__line">Welcome. Type <span style="color:#00E08F">help</span> to begin.</div>
-  </div>
-  <div class="term__input-row">
-    <span>rehnova:~$</span>
-    <input id="term-input" autocomplete="off" spellcheck="false" placeholder="type a command...">
-  </div>
-</div>
 
-<div class="chips">
-  <button data-cmd="whoami">whoami</button>
-  <button data-cmd="about">about</button>
-  <button data-cmd="scope">scope</button>
-  <button data-cmd="stack">stack</button>
-  <button data-cmd="mission">mission</button>
-  <button data-cmd="contact">contact</button>
-</div>
+      <div class="term" id="term-wrap">
+        <div class="term__h">
+          <div class="term__dots"><i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i></div>
+          <div>rehnova — zsh — 80x24</div>
+          <div style="width:20px"></div>
+        </div>
+        <div class="term__body" id="term-body">
+          <div class="term__line">Welcome. Type <span style="color:#00E08F">help</span> to begin.</div>
+        </div>
+        <div class="term__input-row">
+          <span>rehnova:~$</span>
+          <input id="term-input" autocomplete="off" spellcheck="false" placeholder="type a command...">
+        </div>
+      </div>
 
-
+      <div class="chips">
+        <button type="button" data-cmd="whoami">whoami</button>
+        <button type="button" data-cmd="about">about</button>
+        <button type="button" data-cmd="scope">scope</button>
+        <button type="button" data-cmd="stack">stack</button>
+        <button type="button" data-cmd="mission">mission</button>
+        <button type="button" data-cmd="contact">contact</button>
+      </div>
     </div>
+
     <div>
       <div class="cards" id="ops">
         <div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div>
-       <div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div><div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div><div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div><div class="card">
-  <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
-  <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
-  <div class="card__t">Adversary Sim</div>
-  <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
-</div> 
-
-</div>
-
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-
-<div class="faded-line"></div>
-
-<style>
-.faded-line{
-  height:1px;
-  width:100%;
-  background:linear-gradient(90deg,
-    transparent 0%,
-    rgba(255,255,255,.06) 20%,
-    rgba(255, 255, 255, 0.9) 50%,
-    rgba(255,255,255,.06) 80%,
-    transparent 100%
-  );
-}
-</style>
-
-<section class="contact" id="contact">
-  <div class="contact__inner">
-    <div class="contact__left">
-      <h2 class="contact__h2">SECURE<br>CHANNEL<span style="color: #00E08F; margin-left: 5px;">.</span></h2>
-    </div>
-
-    <div style="background: rgba(4,4,4,0.8);backdrop-filter: blur(10px);border-radius:12px; padding:20px; border: 1px solid rgba(255,255,255,.1);" class="contact__right">
-      <a class="c-row" href="mailto:rehnova@proton.me" data-copy="rehnova@proton.me">
-        <div class="c-row__l">
-          <div class="c-ic"><i class="fa-solid fa-envelope"></i></div>
-          <div>
-            <div class="c-t">Proton Mail</div>
-            <div class="c-v">rehnova@proton.me</div>
-          </div>
+          <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
+          <span class="card__sheen" aria-hidden="true"></span>
+          <div class="card__ic"><i class="fa-solid fa-crosshairs"></i></div>
+          <div class="card__t">Adversary Sim</div>
+          <div class="card__d">MITRE TTPs, real chains, not scanner noise.</div>
         </div>
-        <div class="c-a">↗</div>
+        <div class="card">
+          <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
+          <span class="card__sheen" aria-hidden="true"></span>
+          <div class="card__ic"><i class="fa-solid fa-network-wired"></i></div>
+          <div class="card__t">AD / Identity</div>
+          <div class="card__d">Kerberos, ADCS, Entra paths that actually land.</div>
+        </div>
+        <div class="card">
+          <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
+          <span class="card__sheen" aria-hidden="true"></span>
+          <div class="card__ic"><i class="fa-solid fa-cloud"></i></div>
+          <div class="card__t">Cloud Assault</div>
+          <div class="card__d">AWS / Azure attack surface, IAM, lateral cloud.</div>
+        </div>
+        <div class="card">
+          <div class="card__bg"><img src="YOUR_IMG.jpg" alt=""></div>
+          <span class="card__sheen" aria-hidden="true"></span>
+          <div class="card__ic"><i class="fa-solid fa-code"></i></div>
+          <div class="card__t">Exploit Dev</div>
+          <div class="card__d">Logic bugs to RCE. Custom tooling, not wrappers.</div>
+        </div>
+      </div>
+
+      <a href="{{ url_for('services') }}" class="metal-svc" aria-label="View all services">
+        <span class="metal-svc__edge" aria-hidden="true"></span>
+        <span class="metal-svc__label">Services</span>
+        <span class="metal-svc__mark" aria-hidden="true">//</span>
+        <span class="metal-svc__go" aria-hidden="true">→</span>
+        <span class="metal-svc__sheen" aria-hidden="true"></span>
       </a>
-
-      <div class="c-coffee">
-        <div class="c-coffee__label">Buy me a coffee — gift / support</div>
-        <div class="c-wallet" data-copy="bc1q...YOUR_BTC">
-          <span>BTC</span><p>bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p><i>copy</i>
-        </div>
-        <div class="c-wallet" data-copy="0x...YOUR_ETH">
-          <span>ETH</span><p>0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p><i>copy</i>
-        </div>
-      </div>
     </div>
   </div>
 </section>
-
-
-<div id="c-copied" style="position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#111;border:1px solid rgba(255,255,255,.1);padding:10px 14px;border-radius:100px;font-family:'JetBrains Mono';font-size:11px;color:#fff;opacity:0;pointer-events:none;transition:.3s;z-index:300">copied</div>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
-</body>
-
-</html>
+{% endblock %}

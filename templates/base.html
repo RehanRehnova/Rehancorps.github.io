@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}rehnova offsec ops{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+
+<body>
+
+  <header class="header">
+    <nav class="nav">
+      <a href="{{ url_for('home') }}" class="nav__logo">
+        <img src="https://i.ibb.co/0jZ3Qy4k/rehnova-logo-white.png" alt="REHNOVA" onerror="this.style.display='none'">
+        <div class="nav__logo-fallback">REH<span>NOVA</span></div>
+      </a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li>
+            <a href="{{ url_for('home') }}#about"
+               class="nav__link{% if request.endpoint == 'home' %} nav__link--active{% endif %}">About</a>
+          </li>
+          <li>
+            <a href="{{ url_for('services') }}"
+               class="nav__link{% if request.endpoint == 'services' %} nav__link--active{% endif %}">Services</a>
+          </li>
+          <li>
+            <a href="{{ url_for('articles') }}"
+               class="nav__link{% if request.endpoint in ('articles', 'article_detail') %} nav__link--active{% endif %}">Articles</a>
+          </li>
+          <li>
+            <a href="{{ url_for('tools') }}"
+               class="nav__link{% if request.endpoint in ('tools', 'tool_detail') %} nav__link--active{% endif %}">Tools</a>
+          </li>
+          <li>
+            <a href="#contact" class="nav__link nav__link--pill">Contact</a>
+          </li>
+        </ul>
+        <div class="nav__social">
+          <a href="mailto:rehnova@proton.me" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Menu"><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <script>
+    (function () {
+      const t = document.getElementById('nav-toggle');
+      const m = document.getElementById('nav-menu');
+      if (!t || !m) return;
+      t.onclick = () => { t.classList.toggle('active'); m.classList.toggle('show'); };
+      document.querySelectorAll('.nav__link').forEach(a => {
+        a.onclick = () => { t.classList.remove('active'); m.classList.remove('show'); };
+      });
+    })();
+  </script>
+
+  <main class="page">
+    {% block content %}{% endblock %}
+  </main>
+
+  <div class="faded-line" aria-hidden="true"></div>
+
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <div class="contact__left">
+        <h2 class="contact__h2">SECURE<br>CHANNEL<span style="color: #00E08F; margin-left: 5px;">.</span></h2>
+      </div>
+
+      <div class="contact__right">
+        <a class="c-row" href="mailto:rehnova@proton.me" data-copy="rehnova@proton.me">
+          <div class="c-row__l">
+            <div class="c-ic"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="c-t">Proton Mail</div>
+              <div class="c-v">rehnova@proton.me</div>
+            </div>
+          </div>
+          <div class="c-a">↗</div>
+        </a>
+
+        <div class="c-coffee">
+          <div class="c-coffee__label">Buy me a coffee — gift / support</div>
+          <div class="c-wallet" data-copy="bc1q...YOUR_BTC">
+            <span>BTC</span>
+            <p>bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            <i>copy</i>
+          </div>
+          <div class="c-wallet" data-copy="0x...YOUR_ETH">
+            <span>ETH</span>
+            <p>0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            <i>copy</i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="c-copied" class="c-copied" aria-live="polite">copied</div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  {% block scripts %}{% endblock %}
+
+</body>
+
+</html>

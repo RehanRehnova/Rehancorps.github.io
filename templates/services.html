@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}services — rehnova offsec ops{% endblock %}
+
+{% block content %}
+<section class="svc-hero">
+  <div class="svc-hero__inner">
+    <div class="svc-hero__kicker">
+      <span class="svc-hero__line"></span>
+      <span>// engagement catalog</span>
+    </div>
+    <h1 class="svc-hero__h1">OFFSEC<br><em>SERVICES</em></h1>
+    <p class="svc-hero__p">
+      Real adversary work — not checkbox scans. Selective engagements across identity, cloud, and custom exploit paths.
+      Demo catalog below. Scope is always tailored.
+    </p>
+  </div>
+</section>
+
+<div class="faded-line" aria-hidden="true"></div>
+
+<section class="svc-list" id="catalog">
+  <div class="svc-list__inner">
+
+    <article class="svc-card">
+      <div class="svc-card__top">
+        <div class="svc-card__ic"><i class="fa-solid fa-crosshairs"></i></div>
+        <div class="svc-card__meta">
+          <span class="svc-card__id">01</span>
+          <span class="svc-card__tag">purple-team</span>
+        </div>
+      </div>
+      <h2 class="svc-card__t">Adversary Simulation</h2>
+      <p class="svc-card__d">
+        Full kill-chain emulation mapped to MITRE ATT&amp;CK. Real chains — initial access through impact — not scanner noise or theoretical TTPs.
+      </p>
+      <ul class="svc-card__bullets">
+        <li>Scenario design against your crown jewels</li>
+        <li>Opsec-aware execution &amp; detection gap report</li>
+        <li>Replayable playbooks for purple team loops</li>
+      </ul>
+      <span class="svc-card__sheen" aria-hidden="true"></span>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-card__top">
+        <div class="svc-card__ic"><i class="fa-solid fa-id-badge"></i></div>
+        <div class="svc-card__meta">
+          <span class="svc-card__id">02</span>
+          <span class="svc-card__tag">identity</span>
+        </div>
+      </div>
+      <h2 class="svc-card__t">AD / Entra Identity Assault</h2>
+      <p class="svc-card__d">
+        Identity is the perimeter. Kerberos abuse, ADCS, hybrid Entra paths, privilege escalation that lands in production domains.
+      </p>
+      <ul class="svc-card__bullets">
+        <li>ADCS / ESC paths &amp; certificate abuse</li>
+        <li>Kerberos, delegation, ACL graph attacks</li>
+        <li>Entra ID / hybrid identity pivots</li>
+      </ul>
+      <span class="svc-card__sheen" aria-hidden="true"></span>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-card__top">
+        <div class="svc-card__ic"><i class="fa-solid fa-cloud"></i></div>
+        <div class="svc-card__meta">
+          <span class="svc-card__id">03</span>
+          <span class="svc-card__tag">cloud</span>
+        </div>
+      </div>
+      <h2 class="svc-card__t">Cloud Offensive Assessment</h2>
+      <p class="svc-card__d">
+        AWS &amp; Azure attack surface the way operators see it — IAM, federation, storage, compute, and lateral movement across tenants.
+      </p>
+      <ul class="svc-card__bullets">
+        <li>IAM privilege graphs &amp; role assumption chains</li>
+        <li>Misconfig → data / compute foothold paths</li>
+        <li>Federation &amp; OIDC abuse scenarios</li>
+      </ul>
+      <span class="svc-card__sheen" aria-hidden="true"></span>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-card__top">
+        <div class="svc-card__ic"><i class="fa-solid fa-bug"></i></div>
+        <div class="svc-card__meta">
+          <span class="svc-card__id">04</span>
+          <span class="svc-card__tag">exploit-dev</span>
+        </div>
+      </div>
+      <h2 class="svc-card__t">Exploit Development</h2>
+      <p class="svc-card__d">
+        Logic bugs to RCE. Custom loaders, chain construction, and tooling built for the engagement — not off-the-shelf wrappers.
+      </p>
+      <ul class="svc-card__bullets">
+        <li>App logic &amp; authz bypass chains</li>
+        <li>Custom PoCs, loaders, payload pipelines</li>
+        <li>Hardening recommendations that match the exploit</li>
+      </ul>
+      <span class="svc-card__sheen" aria-hidden="true"></span>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-card__top">
+        <div class="svc-card__ic"><i class="fa-solid fa-terminal"></i></div>
+        <div class="svc-card__meta">
+          <span class="svc-card__id">05</span>
+          <span class="svc-card__tag">red-team</span>
+        </div>
+      </div>
+      <h2 class="svc-card__t">External / Internal Red Team</h2>
+      <p class="svc-card__d">
+        Goal-oriented red team: breach, move, and prove impact against agreed objectives. Quiet when needed. Loud when it counts.
+      </p>
+      <ul class="svc-card__bullets">
+        <li>External perimeter + internal post-ex</li>
+        <li>Objective-driven (not “find everything”)</li>
+        <li>Executive + technical debrief packages</li>
+      </ul>
+      <span class="svc-card__sheen" aria-hidden="true"></span>
+    </article>
+
+    <article class="svc-card">
+      <div class="svc-card__top">
+        <div class="svc-card__ic"><i class="fa-solid fa-gears"></i></div>
+        <div class="svc-card__meta">
+          <span class="svc-card__id">06</span>
+          <span class="svc-card__tag">tooling</span>
+        </div>
+      </div>
+      <h2 class="svc-card__t">Custom Offsec Tooling</h2>
+      <p class="svc-card__d">
+        Automate the 8-hour grind into one binary. Recon → exploit → post → report pipelines tailored to your environment.
+      </p>
+      <ul class="svc-card__bullets">
+        <li>Go / Rust / Python operator tooling</li>
+        <li>C2-adjacent helpers &amp; internal utilities</li>
+        <li>Kill-chain automation for repeat ops</li>
+      </ul>
+      <span class="svc-card__sheen" aria-hidden="true"></span>
+    </article>
+
+  </div>
+
+  <div class="svc-cta">
+    <p class="svc-cta__note">Demo catalog — real scopes are negotiated. Selective engagements only.</p>
+    <a href="#contact" class="metal-svc" aria-label="Open secure channel">
+      <span class="metal-svc__edge" aria-hidden="true"></span>
+      <span class="metal-svc__label">Engage</span>
+      <span class="metal-svc__mark" aria-hidden="true">//</span>
+      <span class="metal-svc__go" aria-hidden="true">→</span>
+      <span class="metal-svc__sheen" aria-hidden="true"></span>
+    </a>
+  </div>
+</section>
+{% endblock %}

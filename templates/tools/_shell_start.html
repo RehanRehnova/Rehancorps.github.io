@@ -1,0 +1,21 @@
+{# Shared chrome for individual tool pages — include at top of tool content #}
+<section class="tool-page">
+  <div class="tool-page__inner">
+    <a href="{{ url_for('tools') }}" class="tool-back" data-reveal>← all tools</a>
+
+    <header class="tool-head" data-reveal>
+      <div class="tool-head__meta">
+        <span class="tool-head__cat">{{ tool.category }}</span>
+        <span class="art-row__dot" aria-hidden="true"></span>
+        <span>client-side</span>
+      </div>
+      <h1 class="tool-head__h1">{{ tool.title }}</h1>
+      <p class="tool-head__p">{{ tool.excerpt }}</p>
+    </header>
+
+    <div class="tool-banner" data-reveal data-reveal-delay="60">
+      <img src="{{ url_for('static', filename=tool.thumbnail) }}" alt="" class="tool-banner__img">
+      <span class="tool-banner__fade" aria-hidden="true"></span>
+    </div>
+
+    <div class="tool-work" data-reveal data-reveal-delay="100">

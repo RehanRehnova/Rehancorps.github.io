@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.title }} — rehnova tools{% endblock %}
+{% block content %}
+{% include 'tools/_shell_start.html' %}
+
+<div class="tool-panel">
+  <p class="tool-disclaimer">
+    This builder does <strong>not</strong> scan networks. It only composes an nmap command for you to run locally against targets you own or have written permission to test.
+  </p>
+
+  <div class="tool-field">
+    <label for="nm-target">Target</label>
+    <input id="nm-target" type="text" placeholder="192.168.1.0/24  or  scanme.nmap.org" autocomplete="off" spellcheck="false">
+  </div>
+
+  <div class="tool-field">
+    <label>Scan profile</label>
+    <div class="tool-chips" id="nm-profile">
+      <button type="button" class="tool-chip is-on" data-v="-sV -sC">Default scripts + version</button>
+      <button type="button" class="tool-chip" data-v="-sn">Host discovery only</button>
+      <button type="button" class="tool-chip" data-v="-sS -T4">SYN stealth (root)</button>
+      <button type="button" class="tool-chip" data-v="-sT -T4">TCP connect</button>
+      <button type="button" class="tool-chip" data-v="-sU --top-ports 50">UDP top 50</button>
+      <button type="button" class="tool-chip" data-v="-A -T4">Aggressive (-A)</button>
+      <button type="button" class="tool-chip" data-v="-Pn -sV">Skip ping + version</button>
+    </div>
+  </div>
+
+  <div class="tool-grid-2">
+    <div class="tool-field">
+      <label for="nm-ports">Ports</label>
+      <select id="nm-ports">
+        <option value="">Default (top 1000)</option>
+        <option value="-F">Fast (-F)</option>
+        <option value="-p-">All TCP (-p-)</option>
+        <option value="-p 80,443,8080,8443">Web common</option>
+        <option value="-p 22,80,443,3389,445,139">Quick win set</option>
+        <option value="custom">Custom…</option>
+      </select>
+    </div>
+    <div class="tool-field" id="nm-custom-wrap" hidden>
+      <label for="nm-custom">Custom -p</label>
+      <input id="nm-custom" type="text" placeholder="1-1024,3306,5432" spellcheck="false">
+    </div>
+  </div>
+
+  <div class="tool-field">
+    <label>Options</label>
+    <div class="tool-checks">
+      <label class="tool-check"><input type="checkbox" id="nm-oN" checked> -oN report.txt</label>
+      <label class="tool-check"><input type="checkbox" id="nm-oX"> -oX report.xml</label>
+      <label class="tool-check"><input type="checkbox" id="nm-v"> -v verbose</label>
+      <label class="tool-check"><input type="checkbox" id="nm-reason"> --reason</label>
+      <label class="tool-check"><input type="checkbox" id="nm-open"> --open</label>
+    </div>
+  </div>
+
+  <div class="tool-field">
+    <label>Command</label>
+    <div class="tool-out-row">
+      <pre class="tool-out" id="nm-out">nmap -sV -sC &lt;target&gt;</pre>
+      <button type="button" class="tool-btn" id="nm-copy">Copy</button>
+    </div>
+  </div>
+</div>
+
+{% include 'tools/_shell_end.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-nmap.js') }}"></script>
+{% endblock %}

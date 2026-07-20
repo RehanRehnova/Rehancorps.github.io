@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} — rehnova offsec ops{% endblock %}
+
+{% block content %}
+<article class="art-single">
+  <div class="art-single__inner">
+    <a href="{{ url_for('articles') }}" class="art-back">← articles</a>
+
+    <header class="art-single__head">
+      <div class="art-single__meta">
+        <time>{{ article.date }}</time>
+        <span class="art-row__dot" aria-hidden="true"></span>
+        <span>{{ article.category }}</span>
+        <span class="art-row__dot" aria-hidden="true"></span>
+        <span>{{ article.read_time }}</span>
+      </div>
+      <h1 class="art-single__h1">{{ article.title }}</h1>
+      {% if article.excerpt %}
+      <p class="art-single__deck">{{ article.excerpt }}</p>
+      {% endif %}
+      <div class="art-single__by">
+        <span class="art-single__author">{{ article.author }}</span>
+        {% if article.author_role %}
+        <span class="art-single__role">{{ article.author_role }}</span>
+        {% endif %}
+      </div>
+      {% if article.tags %}
+      <ul class="art-tags">
+        {% for tag in article.tags %}
+        <li>{{ tag }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </header>
+
+    {% if article.thumbnail %}
+    <figure class="art-hero">
+      <img
+        src="{% if article.thumbnail.startswith('http') %}{{ article.thumbnail }}{% else %}{{ url_for('static', filename=article.thumbnail) }}{% endif %}"
+        alt="{{ article.title }}"
+        class="art-hero__img"
+        decoding="async"
+      >
+      <span class="art-hero__edge" aria-hidden="true"></span>
+    </figure>
+    {% endif %}
+
+    <div class="art-body">
+      {{ article.content | safe }}
+    </div>
+
+    {% if related %}
+    <aside class="art-related">
+      <h2 class="art-related__h">Related</h2>
+      <ul class="art-related__list">
+        {% for r in related %}
+        <li>
+          <a href="{{ url_for('article_detail', slug=r.slug) }}" class="art-related__link">
+            {% if r.thumbnail %}
+            <div class="art-related__thumb">
+              <img
+                src="{% if r.thumbnail.startswith('http') %}{{ r.thumbnail }}{% else %}{{ url_for('static', filename=r.thumbnail) }}{% endif %}"
+                alt=""
+                loading="lazy"
+              >
+            </div>
+            {% endif %}
+            <div class="art-related__copy">
+              <span class="art-related__cat">{{ r.category }}</span>
+              <span class="art-related__t">{{ r.title }}</span>
+            </div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </aside>
+    {% endif %}
+  </div>
+</article>
+{% endblock %}

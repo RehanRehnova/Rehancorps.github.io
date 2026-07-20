@@ -1,0 +1,17 @@
+    </div>
+
+    <aside class="tool-more" data-reveal>
+      <h2 class="tool-more__h">Other tools</h2>
+      <ul class="tool-more__list">
+        {% for t in tools if t.slug != tool.slug %}
+        <li>
+          <a href="{{ url_for('tool_detail', slug=t.slug) }}">
+            <span>{{ t.category }}</span>
+            <strong>{{ t.title }}</strong>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
+</section>

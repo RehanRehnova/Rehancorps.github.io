@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.title }} — rehnova tools{% endblock %}
+{% block content %}
+{% include 'tools/_shell_start.html' %}
+
+<div class="tool-panel">
+  <p class="tool-disclaimer">
+    AES-GCM (256-bit) via Web Crypto API. Key material and plaintext never leave this browser tab.
+  </p>
+  <div class="tool-field">
+    <label for="aes-pass">Passphrase</label>
+    <input id="aes-pass" type="password" placeholder="Passphrase used to derive key" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="tool-field">
+    <label for="aes-in">Plaintext / ciphertext (base64 package)</label>
+    <textarea id="aes-in" rows="6" spellcheck="false" placeholder="Text to encrypt, or paste encrypted package to decrypt…"></textarea>
+  </div>
+  <div class="tool-actions">
+    <button type="button" class="tool-btn tool-btn--solid" id="aes-enc">Encrypt</button>
+    <button type="button" class="tool-btn tool-btn--solid" id="aes-dec">Decrypt</button>
+    <button type="button" class="tool-btn" id="aes-copy">Copy out</button>
+  </div>
+  <div class="tool-field">
+    <label for="aes-out">Output</label>
+    <textarea id="aes-out" rows="5" readonly spellcheck="false"></textarea>
+  </div>
+  <p class="tool-hint" id="aes-err"></p>
+</div>
+
+{% include 'tools/_shell_end.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-aes.js') }}"></script>
+{% endblock %}

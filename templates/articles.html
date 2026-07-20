@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}articles — rehnova offsec ops{% endblock %}
+
+{% block content %}
+<section class="art-page">
+  <header class="art-head">
+    <div class="art-head__kicker">
+      <span class="art-head__rule"></span>
+      <span>// field notes</span>
+    </div>
+    <h1 class="art-head__h1">ARTICLES</h1>
+    <p class="art-head__p">
+      Operator notes on identity, cloud, exploit chains, and tooling.
+      Written for people who break things that matter.
+    </p>
+  </header>
+
+  {% if categories %}
+  <div class="art-filters" id="art-filters" role="tablist" aria-label="Filter by category">
+    <button type="button" class="art-filter is-active" data-cat="all">All</button>
+    {% for cat in categories %}
+    <button type="button" class="art-filter" data-cat="{{ cat|e }}">{{ cat }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if articles %}
+  <div class="art-list" id="art-list">
+    {% for article in articles %}
+    <a href="{{ url_for('article_detail', slug=article.slug) }}"
+       class="art-row{% if article.thumbnail %} art-row--img{% endif %}"
+       data-category="{{ article.category|e }}"
+       data-featured="{{ '1' if article.featured else '0' }}">
+
+      {% if article.thumbnail %}
+      <div class="art-row__media">
+        <img
+          src="{% if article.thumbnail.startswith('http') %}{{ article.thumbnail }}{% else %}{{ url_for('static', filename=article.thumbnail) }}{% endif %}"
+          alt=""
+          class="art-row__img"
+          loading="lazy"
+          decoding="async"
+        >
+        <span class="art-row__media-fade" aria-hidden="true"></span>
+      </div>
+      {% endif %}
+
+      <div class="art-row__body">
+        <div class="art-row__meta">
+          <time class="art-row__date">{{ article.date }}</time>
+          <span class="art-row__dot" aria-hidden="true"></span>
+          <span class="art-row__cat">{{ article.category }}</span>
+          <span class="art-row__dot" aria-hidden="true"></span>
+          <span class="art-row__read">{{ article.read_time }}</span>
+          {% if article.featured %}
+          <span class="art-row__feat">featured</span>
+          {% endif %}
+        </div>
+        <h2 class="art-row__title">{{ article.title }}</h2>
+        {% if article.excerpt %}
+        <p class="art-row__excerpt">{{ article.excerpt }}</p>
+        {% endif %}
+        <span class="art-row__go" aria-hidden="true">read →</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="art-empty">
+    <p>No articles yet. Drop a <code>.md</code> file in <code>content/posts/</code>.</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  const filters = document.querySelectorAll('.art-filter');
+  const rows = document.querySelectorAll('.art-row');
+  if (!filters.length) return;
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filters.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const cat = btn.dataset.cat;
+      rows.forEach((row) => {
+        const show = cat === 'all' || row.dataset.category === cat;
+        row.hidden = !show;
+      });
+    });
+  });
+})();
+</script>
+{% endblock %}

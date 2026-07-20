@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.title }} — rehnova tools{% endblock %}
+{% block content %}
+{% include 'tools/_shell_start.html' %}
+
+<div class="tool-panel">
+  <p class="tool-disclaimer">Classic ciphers are for learning and CTFs. Do not use them to protect real secrets.</p>
+
+  <div class="tool-field">
+    <label>Cipher</label>
+    <div class="tool-chips" id="cip-mode">
+      <button type="button" class="tool-chip is-on" data-v="rot13">ROT13</button>
+      <button type="button" class="tool-chip" data-v="caesar">Caesar</button>
+      <button type="button" class="tool-chip" data-v="xor">XOR</button>
+    </div>
+  </div>
+
+  <div class="tool-grid-2" id="cip-opts">
+    <div class="tool-field" id="cip-shift-wrap">
+      <label for="cip-shift">Caesar shift</label>
+      <input id="cip-shift" type="number" min="0" max="25" value="3">
+    </div>
+    <div class="tool-field" id="cip-key-wrap" hidden>
+      <label for="cip-key">XOR key</label>
+      <input id="cip-key" type="text" placeholder="key" spellcheck="false">
+    </div>
+  </div>
+
+  <div class="tool-grid-2">
+    <div class="tool-field">
+      <label for="cip-in">Input</label>
+      <textarea id="cip-in" rows="7" spellcheck="false" placeholder="Message…"></textarea>
+    </div>
+    <div class="tool-field">
+      <label for="cip-out">Output</label>
+      <textarea id="cip-out" rows="7" readonly spellcheck="false"></textarea>
+    </div>
+  </div>
+  <div class="tool-actions">
+    <button type="button" class="tool-btn tool-btn--solid" id="cip-enc">Encrypt / transform</button>
+    <button type="button" class="tool-btn tool-btn--solid" id="cip-dec">Decrypt</button>
+    <button type="button" class="tool-btn" id="cip-copy">Copy out</button>
+  </div>
+</div>
+
+{% include 'tools/_shell_end.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-ciphers.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}tools — rehnova offsec ops{% endblock %}
+
+{% block content %}
+<section class="tools-page">
+  <header class="tools-head" data-reveal>
+    <div class="tools-head__kicker">
+      <span class="tools-head__rule"></span>
+      <span>// public utility lab</span>
+    </div>
+    <h1 class="tools-head__h1">TOOLS</h1>
+    <p class="tools-head__p">
+      Browser-side recon helpers and crypto utilities. Nothing leaves your machine.
+      Educational and operator-friendly — not a remote attack platform.
+    </p>
+  </header>
+
+  <div class="tools-hero" data-reveal data-reveal-delay="80">
+    <img src="{{ url_for('static', filename='images/tools/hub.jpg') }}" alt="" class="tools-hero__img">
+    <span class="tools-hero__fade" aria-hidden="true"></span>
+  </div>
+
+  {% for cat in categories %}
+  <section class="tools-section" data-reveal>
+    <h2 class="tools-section__h">{{ cat }}</h2>
+    <div class="tools-grid">
+      {% for t in tools if t.category == cat %}
+      <a href="{{ url_for('tool_detail', slug=t.slug) }}" class="tools-card" data-reveal data-reveal-delay="{{ loop.index0 * 60 }}">
+        <div class="tools-card__media">
+          <img src="{{ url_for('static', filename=t.thumbnail) }}" alt="" loading="lazy">
+          <span class="tools-card__fade" aria-hidden="true"></span>
+        </div>
+        <div class="tools-card__body">
+          <div class="tools-card__top">
+            <span class="tools-card__ic"><i class="fa-solid {{ t.icon }}"></i></span>
+            <span class="tools-card__cat">{{ t.category }}</span>
+          </div>
+          <h3 class="tools-card__t">{{ t.title }}</h3>
+          <p class="tools-card__d">{{ t.excerpt }}</p>
+          <span class="tools-card__go">open →</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <p class="tools-note" data-reveal>
+    All processing is local. Nmap builder only generates commands for you to run on systems you are authorized to test.
+  </p>
+</section>
+{% endblock %}
