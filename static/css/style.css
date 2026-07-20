@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6,
 .svc-hero__h1,
 .card__t,
 .svc-card__t,
-.nav__logo-fallback,
+.nav__logo-text,
 .art-head__h1,
 .art-row__title,
 .art-single__h1,
@@ -104,27 +104,30 @@ h1, h2, h3, h4, h5, h6,
       justify-content: space-between;
     }
 
-    /* LOGO IMAGE - WELL SIZED */
+    /* LOGO — favicon mark + REHNOVA wordmark */
     .nav__logo {
       display: flex;
       align-items: center;
+      gap: 10px;
       text-decoration: none
     }
 
-    .nav__logo img {
-      height: 24px;
-      width: auto;
-      display: block
+    .nav__logo-mark {
+      width: 28px;
+      height: 28px;
+      display: block;
+      flex-shrink: 0;
+      border-radius: 7px;
     }
 
-    .nav__logo-fallback {
+    .nav__logo-text {
       font-size: 18px;
       font-weight: 700;
       letter-spacing: -.02em;
       color: #fff
     }
 
-    .nav__logo-fallback span {
+    .nav__logo-text span {
       font-weight: 300;
       opacity: .6
     }
@@ -277,10 +280,11 @@ h1, h2, h3, h4, h5, h6,
       width: 100%
     }
 
-    /* DESKTOP ICONS WELL SIZED */
+    /* DESKTOP LOGO MARK */
     @media(min-width:861px) {
-      .nav__logo img {
-        height: 26px
+      .nav__logo-mark {
+        width: 30px;
+        height: 30px;
       }
     }
 
@@ -382,58 +386,60 @@ h1, h2, h3, h4, h5, h6,
 .hero__line{width:24px;height:1px;background:rgba(0,224,143,.6)}
 .hero__kicker{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--green);font-family:var(--font-body),monospace}
 
-/* Dragon — emerges from the hero void (not a framed card) */
+/* Dragon — brighter, emerges from pure black (not a photo plate) */
 .hero__dragon{
   position: absolute;
   z-index: 0;
   pointer-events: none;
-  right: -6%;
-  bottom: -4%;
-  width: min(72vw, 640px);
-  height: min(88vh, 780px);
-  max-width: 720px;
+  right: -4%;
+  bottom: -8%;
+  width: min(74vw, 700px);
+  height: min(94vh, 880px);
+  max-width: 780px;
 }
 .hero__dragon-img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 55% 20%;
+  object-position: 58% 26%;
   display: block;
-  filter: brightness(.78) contrast(1.08) saturate(.55);
-  /* Soft dissolve so it belongs to the black field */
+  /* punchier silver, less dull */
+  filter: brightness(1.12) contrast(1.18) saturate(.7);
+  mix-blend-mode: screen;
   -webkit-mask-image:
-    radial-gradient(ellipse 72% 78% at 58% 42%, #000 18%, transparent 72%),
-    linear-gradient(90deg, transparent 0%, #000 22%, #000 100%),
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 72%, transparent 100%);
+    radial-gradient(ellipse 82% 90% at 62% 46%, #000 28%, transparent 76%),
+    linear-gradient(90deg, transparent 0%, #000 14%, #000 100%),
+    linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
   mask-image:
-    radial-gradient(ellipse 72% 78% at 58% 42%, #000 18%, transparent 72%),
-    linear-gradient(90deg, transparent 0%, #000 22%, #000 100%),
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 72%, transparent 100%);
+    radial-gradient(ellipse 82% 90% at 62% 46%, #000 28%, transparent 76%),
+    linear-gradient(90deg, transparent 0%, #000 14%, #000 100%),
+    linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
   -webkit-mask-composite: source-in, source-in;
   mask-composite: intersect;
-  opacity: .92;
-  transform: scale(1.06);
+  opacity: 1;
+  transform: scale(1.05);
   animation: dragon-emerge 1.4s cubic-bezier(.22,1,.36,1) both;
 }
 .hero__dragon-mist{
   position: absolute;
-  inset: -8%;
+  inset: -10%;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 50% at 60% 48%, rgba(180,180,190,.06), transparent 70%),
-    radial-gradient(ellipse 80% 70% at 70% 60%, transparent 30%, rgba(8,8,8,.55) 75%, #080808 100%);
-  mix-blend-mode: multiply;
+    radial-gradient(ellipse 50% 45% at 62% 42%, rgba(220,220,230,.05), transparent 65%),
+    /* light edge dissolve into page black — no hard photo edge */
+    radial-gradient(ellipse 95% 70% at 78% 55%, transparent 35%, rgba(8,8,8,.4) 70%, #080808 92%);
+  mix-blend-mode: normal;
 }
 @keyframes dragon-emerge{
   from{
     opacity: 0;
-    transform: scale(1.12) translate3d(18px, 28px, 0);
-    filter: brightness(.4) contrast(1.05) saturate(.4) blur(6px);
+    transform: scale(1.12) translate3d(16px, 24px, 0);
+    filter: brightness(.55) contrast(1.05) saturate(.4) blur(5px);
   }
   to{
-    opacity: .92;
-    transform: scale(1.06) translate3d(0, 0, 0);
-    filter: brightness(.78) contrast(1.08) saturate(.55);
+    opacity: 1;
+    transform: scale(1.05) translate3d(0, 0, 0);
+    filter: brightness(1.12) contrast(1.18) saturate(.7);
   }
 }
 @media (prefers-reduced-motion: reduce){
@@ -444,35 +450,124 @@ h1, h2, h3, h4, h5, h6,
     right: 50%;
     transform: translateX(50%);
     bottom: auto;
-    top: 58px;
-    width: min(100vw, 420px);
-    height: 42vh;
-    max-height: 360px;
-    opacity: .55;
+    top: 52px;
+    width: min(100vw, 460px);
+    height: 48vh;
+    max-height: 420px;
   }
   .hero__dragon-img{
-    object-position: 50% 15%;
+    object-position: 50% 20%;
+    filter: brightness(1.08) contrast(1.15) saturate(.65);
     -webkit-mask-image:
-      radial-gradient(ellipse 70% 65% at 50% 40%, #000 10%, transparent 70%),
-      linear-gradient(180deg, transparent 0%, #000 25%, #000 55%, transparent 100%);
+      radial-gradient(ellipse 78% 78% at 50% 40%, #000 18%, transparent 74%),
+      linear-gradient(180deg, transparent 0%, #000 16%, #000 82%, transparent 100%);
     mask-image:
-      radial-gradient(ellipse 70% 65% at 50% 40%, #000 10%, transparent 70%),
-      linear-gradient(180deg, transparent 0%, #000 25%, #000 55%, transparent 100%);
+      radial-gradient(ellipse 78% 78% at 50% 40%, #000 18%, transparent 74%),
+      linear-gradient(180deg, transparent 0%, #000 16%, #000 82%, transparent 100%);
   }
   .hero__left{position: relative; z-index: 2}
 }
 @media(min-width:900px){
   .hero__dragon{
-    right: max(-2%, calc(50% - 640px));
-    bottom: -2%;
-    width: min(58vw, 620px);
-    height: min(92vh, 820px);
+    right: max(-4%, calc(50% - 680px));
+    bottom: -6%;
+    width: min(62vw, 700px);
+    height: min(96vh, 900px);
   }
 }
 @media(min-width:1200px){
   .hero__dragon{
-    right: max(0%, calc(50% - 520px));
-    width: 640px;
+    right: max(-2%, calc(50% - 560px));
+    width: 720px;
+  }
+}
+
+/* Articles banner (no dragon) */
+.art-banner{
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto 36px;
+  aspect-ratio: 21 / 7;
+  max-height: 220px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.07);
+  background: #050505;
+}
+.art-banner__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(.78) contrast(1.05) saturate(.75);
+}
+.art-banner__fade{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.65) 100%);
+}
+@media(max-width:640px){
+  .art-banner{aspect-ratio: 16/7; max-height: 160px; margin-bottom: 28px}
+}
+
+/* Contact — dragon tail wraps the channel */
+.contact{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.contact-dragon{
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  left: -8%;
+  bottom: -12%;
+  width: min(92vw, 920px);
+  height: min(78%, 420px);
+}
+.contact-dragon__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% 70%;
+  display: block;
+  filter: brightness(1.08) contrast(1.15) saturate(.55);
+  mix-blend-mode: screen;
+  opacity: .95;
+  -webkit-mask-image:
+    radial-gradient(ellipse 85% 80% at 28% 70%, #000 18%, transparent 72%),
+    linear-gradient(0deg, #000 0%, #000 55%, transparent 100%),
+    linear-gradient(90deg, #000 0%, #000 55%, transparent 95%);
+  mask-image:
+    radial-gradient(ellipse 85% 80% at 28% 70%, #000 18%, transparent 72%),
+    linear-gradient(0deg, #000 0%, #000 55%, transparent 100%),
+    linear-gradient(90deg, #000 0%, #000 55%, transparent 95%);
+  -webkit-mask-composite: source-in, source-in;
+  mask-composite: intersect;
+}
+.contact-dragon__fade{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0%, transparent 40%, rgba(6,6,6,.55) 75%, #060606 100%),
+    linear-gradient(0deg, #060606 0%, transparent 40%, transparent 70%, rgba(6,6,6,.5) 100%);
+}
+.contact__inner{
+  position: relative;
+  z-index: 2;
+}
+@media(max-width:899px){
+  .contact-dragon{
+    left: 50%;
+    transform: translateX(-55%);
+    bottom: -8%;
+    width: 120%;
+    height: 55%;
+    opacity: .7;
+  }
+  .contact-dragon__img{
+    object-position: 35% 75%;
   }
 }
 
@@ -913,10 +1008,10 @@ h1, h2, h3, h4, h5, h6,
   z-index:300;
 }
 
-.contact{position:relative;background:#060606;padding:80px 28px;border-top:1px solid rgba(255,255,255,.06)}
-.contact::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.06) 20%,rgba(255,255,255,.18) 50%,rgba(255,255,255,.06) 80%,transparent 100%)}
+.contact{position:relative;background:#060606;padding:80px 28px;border-top:1px solid rgba(255,255,255,.06);overflow:hidden}
+.contact::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.06) 20%,rgba(255,255,255,.18) 50%,rgba(255,255,255,.06) 80%,transparent 100%);z-index:3}
 @media(min-width:900px){.contact{padding:90px 48px}}
-.contact__inner{max-width:1280px;margin:0 auto;display:grid;gap:32px;grid-template-columns:1fr}
+.contact__inner{max-width:1280px;margin:0 auto;display:grid;gap:32px;grid-template-columns:1fr;position:relative;z-index:2}
 @media(min-width:900px){.contact__inner{grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}}
 .contact__right{
   background:rgba(4,4,4,.8);
@@ -959,11 +1054,25 @@ h1, h2, h3, h4, h5, h6,
 
 /* ========== SERVICES PAGE ========== */
 .svc-hero{
-  padding:120px 28px 56px;
-  background:#080808;
+  padding:110px 28px 56px;
+  background:#000;
+  overflow:hidden;
 }
-@media(min-width:900px){.svc-hero{padding:140px 48px 72px}}
-.svc-hero__inner{max-width:1280px;margin:0 auto}
+@media(min-width:900px){.svc-hero{padding:130px 48px 72px}}
+.svc-hero__inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  gap:36px;
+  align-items:center;
+}
+@media(min-width:900px){
+  .svc-hero__inner{
+    grid-template-columns:1.05fr .95fr;
+    gap:48px;
+  }
+}
+.svc-hero__copy{position:relative;z-index:2;min-width:0}
 .svc-hero__kicker{
   display:flex;align-items:center;gap:12px;
   font-family:var(--font-body),monospace;
@@ -972,7 +1081,7 @@ h1, h2, h3, h4, h5, h6,
 }
 .svc-hero__line{width:28px;height:1px;background:linear-gradient(90deg,#d0d0d4,#5a5a60)}
 .svc-hero__h1{
-  font-size:clamp(48px,8vw,92px);
+  font-size:clamp(44px,7.5vw,88px);
   line-height:.88;letter-spacing:-.04em;font-weight:900;
   text-transform:uppercase;color:#fff;
 }
@@ -983,8 +1092,36 @@ h1, h2, h3, h4, h5, h6,
   -webkit-text-fill-color:transparent;
 }
 .svc-hero__p{
-  margin-top:22px;max-width:52ch;
+  margin-top:22px;max-width:48ch;
   font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.5);
+}
+.svc-hero__visual{
+  position:relative;
+  width:100%;
+  max-width:480px;
+  margin:0 auto;
+  aspect-ratio:4/4.2;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  background:#050505;
+}
+@media(min-width:900px){
+  .svc-hero__visual{margin:0 0 0 auto;max-width:none}
+}
+.svc-hero__img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  filter:brightness(.9) contrast(1.08) saturate(.7);
+}
+.svc-hero__fade{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg, #000 0%, transparent 22%, transparent 75%, rgba(0,0,0,.4) 100%),
+    linear-gradient(180deg, transparent 35%, rgba(0,0,0,.6) 100%);
+}
+@media(max-width:899px){
+  .svc-hero__visual{max-width:360px;aspect-ratio:16/11}
 }
 
 .svc-list{padding:56px 28px 80px;background:#000}

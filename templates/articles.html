@@ -15,6 +15,10 @@
       Written for people who break things that matter.
     </p>
   </header>
+  <div class="art-banner" aria-hidden="true">
+    <img src="{{ url_for('static', filename='images/hero-articles.jpg') }}" alt="" class="art-banner__img" decoding="async">
+    <span class="art-banner__fade"></span>
+  </div>
 
   {% if categories %}
   <div class="art-filters" id="art-filters" role="tablist" aria-label="Filter by category">

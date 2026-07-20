@@ -5,15 +5,21 @@
 {% block content %}
 <section class="svc-hero">
   <div class="svc-hero__inner">
-    <div class="svc-hero__kicker">
-      <span class="svc-hero__line"></span>
-      <span>// engagement catalog</span>
+    <div class="svc-hero__copy">
+      <div class="svc-hero__kicker">
+        <span class="svc-hero__line"></span>
+        <span>// engagement catalog</span>
+      </div>
+      <h1 class="svc-hero__h1">OFFSEC<br><em>SERVICES</em></h1>
+      <p class="svc-hero__p">
+        Real adversary work — not checkbox scans. Selective engagements across identity, cloud, and custom exploit paths.
+        Demo catalog below. Scope is always tailored.
+      </p>
     </div>
-    <h1 class="svc-hero__h1">OFFSEC<br><em>SERVICES</em></h1>
-    <p class="svc-hero__p">
-      Real adversary work — not checkbox scans. Selective engagements across identity, cloud, and custom exploit paths.
-      Demo catalog below. Scope is always tailored.
-    </p>
+    <div class="svc-hero__visual" aria-hidden="true">
+      <img src="{{ url_for('static', filename='images/svc-hero-visual.jpg') }}" alt="" class="svc-hero__img" decoding="async">
+      <span class="svc-hero__fade"></span>
+    </div>
   </div>
 </section>
 

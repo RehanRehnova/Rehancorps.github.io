@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="REHNOVA">
+  <rect width="64" height="64" rx="14" fill="#080808"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.5"/>
+  <!-- user-secret style mark -->
+  <g fill="none" stroke="#e8e8ea" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- hat brim -->
+    <path d="M16 28h32"/>
+    <!-- hat crown -->
+    <path d="M22 28c0-8 4.5-14 10-14s10 6 10 14"/>
+    <!-- glasses bridge -->
+    <path d="M28 36h8"/>
+    <!-- left lens -->
+    <circle cx="24" cy="36" r="5.5"/>
+    <!-- right lens -->
+    <circle cx="40" cy="36" r="5.5"/>
+    <!-- collar / coat -->
+    <path d="M20 48c4-6 8-8 12-8s8 2 12 8"/>
+  </g>
+  <circle cx="24" cy="36" r="1.6" fill="#e8e8ea"/>
+  <circle cx="40" cy="36" r="1.6" fill="#e8e8ea"/>
+</svg>
