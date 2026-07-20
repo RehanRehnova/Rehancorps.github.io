@@ -195,6 +195,49 @@ h1, h2, h3, h4, h5, h6,
       background: rgba(255, 255, 255, .08)
     }
 
+    .nav__social--anon {
+      padding-left: 20px;
+    }
+
+    .nav__anon {
+      width: auto !important;
+      height: auto !important;
+      border-radius: 100px !important;
+      padding: 8px 14px !important;
+      gap: 8px;
+      display: inline-flex !important;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .55) !important;
+      font-family: var(--font-body);
+      font-size: 10px !important;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .nav__anon span {
+      display: none;
+    }
+
+    @media (min-width: 1000px) {
+      .nav__anon span {
+        display: inline;
+      }
+    }
+
+    .nav__anon:hover {
+      color: #fff !important;
+      border-color: rgba(255, 255, 255, .28);
+      background: rgba(255, 255, 255, .05) !important;
+    }
+
+    .nav__anon i {
+      font-size: 13px;
+      opacity: .85;
+    }
+
     .nav__toggle {
       display: none;
       background: none;
@@ -953,12 +996,41 @@ h1, h2, h3, h4, h5, h6,
 @media(min-width:760px){.svc-list__inner{grid-template-columns:repeat(2,1fr);gap:20px}}
 @media(min-width:1100px){.svc-list__inner{grid-template-columns:repeat(3,1fr);gap:22px}}
 
+.svc-card__media{
+  position:relative;
+  z-index:1;
+  margin:-1px -1px 16px;
+  height:140px;
+  overflow:hidden;
+  clip-path:polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    0 100%
+  );
+  background:#050505;
+}
+.svc-card__media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.55) saturate(.75) contrast(1.05);
+  transition:transform .6s cubic-bezier(.2,.8,.2,1), filter .4s;
+}
+.svc-card__media-fade{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg, transparent 20%, rgba(8,8,8,.92) 100%);
+}
+.svc-card:hover .svc-card__media img{
+  transform:scale(1.06);
+  filter:brightness(.68) saturate(.85) contrast(1.08);
+}
+
 .svc-card{
   --cut:16px;
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  padding:22px 20px 24px;
+  padding:0 0 24px;
   min-height:280px;
   display:flex;flex-direction:column;
   clip-path:polygon(
@@ -1048,6 +1120,12 @@ h1, h2, h3, h4, h5, h6,
   position:relative;z-index:1;
   display:flex;align-items:flex-start;justify-content:space-between;
   margin-bottom:18px;
+  padding:0 20px;
+}
+.svc-card__t,
+.svc-card__d,
+.svc-card__bullets{
+  padding-left:20px;padding-right:20px;
 }
 .svc-card__ic{
   width:36px;height:36px;
