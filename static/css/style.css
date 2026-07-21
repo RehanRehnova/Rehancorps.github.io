@@ -104,32 +104,51 @@ h1, h2, h3, h4, h5, h6,
       justify-content: space-between;
     }
 
-    /* LOGO — favicon mark + REHNOVA wordmark */
+    /* LOGO — same user-secret mark as anon@proton + REHNOVA (desktop only) */
     .nav__logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      text-decoration: none
+      text-decoration: none;
+      color: #fff;
     }
 
-    .nav__logo-mark {
-      width: 28px;
-      height: 28px;
-      display: block;
+    .nav__logo > .fa-user-secret {
+      font-size: 18px;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
       flex-shrink: 0;
-      border-radius: 7px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .85);
+      transition: .2s;
+    }
+
+    .nav__logo:hover > .fa-user-secret {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .28);
+      background: rgba(255, 255, 255, .05);
     }
 
     .nav__logo-text {
       font-size: 18px;
       font-weight: 700;
       letter-spacing: -.02em;
-      color: #fff
+      color: #fff;
+      display: none; /* phone: icon only */
     }
 
     .nav__logo-text span {
       font-weight: 300;
       opacity: .6
+    }
+
+    @media (min-width: 861px) {
+      .nav__logo-text {
+        display: inline;
+      }
     }
 
     .nav__menu {
@@ -280,11 +299,11 @@ h1, h2, h3, h4, h5, h6,
       width: 100%
     }
 
-    /* DESKTOP LOGO MARK */
     @media(min-width:861px) {
-      .nav__logo-mark {
-        width: 30px;
-        height: 30px;
+      .nav__logo > .fa-user-secret {
+        font-size: 16px;
+        width: 34px;
+        height: 34px;
       }
     }
 
@@ -1019,6 +1038,9 @@ h1, h2, h3, h4, h5, h6,
   border-radius:12px;
   padding:20px;
   border:1px solid rgba(255,255,255,.1);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
 /* BIG TEXT - RESPONSIVE */
@@ -1044,13 +1066,6 @@ h1, h2, h3, h4, h5, h6,
 .c-t{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff}
 .c-v{margin-top:4px;font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.45)}
 .c-a{font-family:var(--font-body);font-size:10px;color:rgba(255,255,255,.25)}
-.c-coffee{margin-top:18px;padding:16px;border:1px dashed rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.02)}
-.c-coffee__label{font-family:var(--font-body);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:12px}
-.c-wallet{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer}
-.c-wallet:last-child{border-bottom:0}
-.c-wallet span{font-family:var(--font-body);font-size:10px;font-weight:700;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:4px 8px;border-radius:6px;min-width:42px;text-align:center}
-.c-wallet p{flex:1;font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.4);word-break:break-all}
-.c-wallet i{font-family:var(--font-body);font-style:normal;font-size:10px;color:rgba(255,255,255,.25);text-transform:uppercase}
 
 /* ========== SERVICES PAGE ========== */
 .svc-hero{
