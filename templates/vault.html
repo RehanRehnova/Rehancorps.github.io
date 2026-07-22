@@ -204,7 +204,7 @@
         </div>
       </div>
       {% if wallets_configured %}
-      <div class="vault-tip__grid">
+      <div class="vault-tip__grid vault-tip__grid--3">
         {% for w in wallets %}
         <div class="vault-tip__card" data-wallet data-sym="{{ w.symbol | lower }}">
           <div class="vault-tip__card-top">
@@ -212,12 +212,15 @@
             <span class="vault-tip__glyph" aria-hidden="true"><i class="fa-brands fa-bitcoin"></i></span>
             {% elif w.symbol == 'ETH' %}
             <span class="vault-tip__glyph" aria-hidden="true"><i class="fa-brands fa-ethereum"></i></span>
+            {% elif w.symbol == 'USDT' %}
+            <span class="vault-tip__glyph vault-tip__glyph--txt" aria-hidden="true">₮</span>
             {% else %}
-            <span class="vault-tip__glyph vault-tip__glyph--txt">{{ w.symbol }}</span>
+            <span class="vault-tip__glyph vault-tip__glyph--txt">{{ w.symbol[:1] }}</span>
             {% endif %}
             <div class="vault-tip__id">
               <span class="vault-tip__sym">{{ w.symbol }}</span>
               <span class="vault-tip__name">{{ w.name }}</span>
+              <span class="vault-tip__net">Network: {{ w.network }}</span>
             </div>
             <button type="button" class="vault-tip__copy" data-copy-addr title="Copy {{ w.symbol }} address">
               <i class="fa-regular fa-copy" aria-hidden="true"></i>
@@ -231,11 +234,12 @@
       {% else %}
       <div class="vault-tip__empty">
         <div class="vault-tip__empty-icons" aria-hidden="true">
-          <i class="fa-brands fa-bitcoin"></i>
+          <span class="vault-tip__empty-usdt">₮</span>
           <i class="fa-brands fa-ethereum"></i>
+          <i class="fa-brands fa-bitcoin"></i>
         </div>
         <p>
-          BTC / ETH —
+          USDT · ETH · BTC —
           <a href="mailto:{{ donate_contact }}">{{ donate_contact }}</a>
         </p>
       </div>
