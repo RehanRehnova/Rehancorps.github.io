@@ -14,25 +14,24 @@
   contact  — how to reach
   clear    — clear terminal`,
 
-    whoami: `Rehan
+    whoami: `Anonym
 Offensive security operator. Builder of REHNOVA.
 Based in ops, not compliance.`,
 
-    about: `I'm an offensive operator. I break paths that matter — AD, Entra ID, cloud, infra — then automate the manual grind.
+    about: `The offensive operator. Breaks paths that matter — AD, Entra ID, cloud, infra — then automate the manual grind.
 
 REHNOVA came from that gap: real engagements need real tooling.`,
 
-    scope: `AD / Entra ID / Cloud / Infra
-Identity is the perimeter.`,
+    scope: `Articles / Web based tools / Cloud / Scripts / communities etc are the perimeters.`,
 
-    stack: `Go, Rust, C, Python, PowerShell
+    stack: `Go, Rust, C, Python, PowerShell, Linux, 
 ADCS, Kerberos, OIDC, loaders, EDR evasion, C2`,
 
     mission: `One platform to handle the kill-chain:
 recon → exploit → post → report.
 No bloat. Just ops.`,
 
-    contact: `rehnova@ops.io — Selective engagements.`
+    contact: `rehnova@proton.me — Selective engagements.`
   };
 
   function print(html) {
