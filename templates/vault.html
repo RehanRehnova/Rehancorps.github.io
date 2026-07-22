@@ -18,17 +18,17 @@
     <div class="vault-hero__actions">
       <a
         class="vault-btn vault-btn--solid"
-        id="vault-dl"
         href="{{ url_for('static', filename='downloads/rehnova-passfill.zip') }}"
         download="rehnova-passfill.zip"
       >
         <i class="fa-solid fa-download" aria-hidden="true"></i>
         Download free
       </a>
-      <a class="vault-btn" href="#install">Install steps →</a>
+      <a class="vault-btn" href="#why">Why these steps?</a>
+      <a class="vault-btn" href="#install">Install →</a>
     </div>
     <p class="vault-hero__note">
-      One package for Chromium browsers and Firefox. Hosted free on this site — no store fee.
+      Free forever. No store fee. No REHNOVA account.
     </p>
   </header>
 
@@ -50,102 +50,248 @@
     </article>
   </div>
 
-  <section class="vault-install" id="install">
-    <h2 class="vault-install__h">Install</h2>
+  {# ── Why not one-click? ── #}
+  <section class="vault-why" id="why">
+    <h2 class="vault-install__h">Why install this way?</h2>
     <p class="vault-install__lead">
-      Step 1–2 are the same for every browser. Step 3 depends on Chrome-family vs Firefox.
+      You will download a zip and load it yourself. That is intentional — not laziness.
+      Read this once so the steps make sense.
+    </p>
+
+    <div class="vault-why__grid">
+      <article class="vault-why__card">
+        <h3>1. Google killed “Add from any website”</h3>
+        <p>
+          Years ago, sites could ship a one-click “Add to Chrome” button.
+          Google removed that for everyone except their <strong>Chrome Web Store</strong>.
+          There is no legal free magic button we can put on this page that installs into Chrome
+          without that store.
+        </p>
+      </article>
+      <article class="vault-why__card">
+        <h3>2. We refuse the paid store gate</h3>
+        <p>
+          Chrome’s store charges a developer registration fee and puts the package under their review rules.
+          Passfill is free tooling for operators and normal users. We host the zip on <strong>this site</strong>
+          (via GitHub → Vercel) so nobody pays Google just to hand you a local password tool.
+        </p>
+      </article>
+      <article class="vault-why__card">
+        <h3>3. “Load unpacked” is the honest free path</h3>
+        <p>
+          Chromium browsers still allow you to load an extension from a folder on <strong>your disk</strong>
+          when Developer mode is on. That is the supported way to run free, independent extensions
+          without a store listing. You are not “hacking Chrome” — you are choosing the open install path.
+        </p>
+      </article>
+      <article class="vault-why__card">
+        <h3>4. You keep control of the bits</h3>
+        <p>
+          You download the exact zip we publish. You unzip it. You point the browser at that folder.
+          No silent auto-update from a store you did not opt into. When we ship a new version,
+          you download again (or re-pack) on your terms. Credentials never go through a store account.
+        </p>
+      </article>
+      <article class="vault-why__card">
+        <h3>5. Why keep the folder after install?</h3>
+        <p>
+          “Load unpacked” does <strong>not</strong> copy the extension into a hidden vault and forget the path.
+          Chrome/Edge/Brave keep a pointer to that folder. If you delete or move it, the extension breaks
+          until you load it again. Park it somewhere permanent like
+          <code>Documents\rehnova-passfill</code>.
+        </p>
+      </article>
+      <article class="vault-why__card">
+        <h3>6. Firefox is slightly different (same idea)</h3>
+        <p>
+          Firefox free install without their store uses <strong>Load Temporary Add-on</strong>
+          from the debugging page. Same philosophy: you pick the files on disk.
+          Temporary add-ons unload when Firefox fully quits — that is Mozilla’s rule, not ours.
+          Reload the same <code>manifest.json</code> after a restart (takes seconds).
+        </p>
+      </article>
+    </div>
+
+    <div class="vault-why__truth">
+      <strong>Bottom line:</strong>
+      Store one-click = paid gatekeeper + their rules.
+      Free + local + under your control = download → unzip → load from disk.
+      Three steps once. After that, Passfill just sits in your browser like any other extension.
+    </div>
+  </section>
+
+  {# ── Install ── #}
+  <section class="vault-install" id="install">
+    <h2 class="vault-install__h">Install — do this in order</h2>
+    <p class="vault-install__lead">
+      Steps 1–2 are identical for every browser. Step 3 splits: Chromium family vs Firefox.
+      Your browser is highlighted when we can detect it.
     </p>
 
     <ol class="vault-steps">
       <li class="vault-step">
         <div class="vault-step__n">1</div>
         <div class="vault-step__body">
-          <h3>Download</h3>
-          <p>One zip. No account required.</p>
+          <h3>Download the package</h3>
+          <p>
+            Get the zip from <strong>this site</strong> — not a random mirror.
+            One file, no account, no email wall.
+          </p>
           <a
             class="vault-btn vault-btn--solid vault-btn--sm"
             href="{{ url_for('static', filename='downloads/rehnova-passfill.zip') }}"
             download="rehnova-passfill.zip"
           >Download rehnova-passfill.zip</a>
+          <p class="vault-step__tip">
+            Why a zip? Browsers install extensions from a <em>folder of files</em> (or a signed store package).
+            We ship the folder contents as a zip so you can open it offline and inspect it first if you want.
+          </p>
         </div>
       </li>
       <li class="vault-step">
         <div class="vault-step__n">2</div>
         <div class="vault-step__body">
-          <h3>Unzip</h3>
+          <h3>Unzip to a permanent folder</h3>
           <p>
-            Extract so you have a folder containing <code>manifest.json</code>.
-            Keep that folder (don’t delete it after install).
+            Right-click → Extract All (Windows) or double-click (Mac/Linux).
+            You need a folder that contains <code>manifest.json</code> at the top level
+            (alongside <code>background.js</code>, <code>popup.html</code>, etc.).
           </p>
           <p class="vault-step__tip">
-            Example: <code>Documents\rehnova-passfill</code>
+            Recommended path: <code>Documents\rehnova-passfill</code> —
+            not Downloads (easy to “clean up” later by accident).
+          </p>
+          <p class="vault-step__tip">
+            Why not delete after install? See “Why keep the folder” above — the browser keeps using those files.
           </p>
         </div>
       </li>
       <li class="vault-step">
         <div class="vault-step__n">3</div>
         <div class="vault-step__body">
-          <h3>Load in your browser</h3>
+          <h3>Load it into the browser</h3>
+          <p>
+            This is the only “weird” step. You are telling the browser:
+            <em>trust this folder on my machine as an extension</em>.
+            Developer mode unlocks that for free packages.
+          </p>
 
           <div class="vault-browser" id="install-chromium">
             <h4>Chrome · Edge · Brave · Arc</h4>
             <ol class="vault-substeps">
               <li>
-                Open extensions:
+                Paste this in the address bar and hit Enter:
                 <div class="vault-copy-row">
                   <code id="ext-url">chrome://extensions</code>
                   <button type="button" class="vault-btn vault-btn--sm" id="copy-ext-url">Copy</button>
                 </div>
-                <span class="vault-step__tip">Edge: <code>edge://extensions</code> · Brave: <code>brave://extensions</code></span>
+                <span class="vault-step__tip">
+                  Edge: <code>edge://extensions</code> ·
+                  Brave: <code>brave://extensions</code> ·
+                  (links from websites cannot open those pages for security reasons — you must type/paste.)
+                </span>
               </li>
-              <li>Turn <strong>Developer mode</strong> ON</li>
-              <li><strong>Load unpacked</strong> → select the unzipped folder</li>
-              <li>Pin <strong>Passfill</strong></li>
+              <li>
+                Toggle <strong>Developer mode</strong> ON (usually top-right).
+                <span class="vault-step__tip">
+                  Why? Without it, the browser only installs signed store packages.
+                  Developer mode is how free/unpacked tools are allowed to run.
+                </span>
+              </li>
+              <li>
+                Click <strong>Load unpacked</strong> → select the unzipped folder
+                (the one that contains <code>manifest.json</code>, not the zip file itself).
+              </li>
+              <li>
+                Confirm <strong>REHNOVA Passfill</strong> appears in the list.
+                Open the puzzle-piece menu → pin Passfill for one-click access.
+              </li>
             </ol>
           </div>
 
           <div class="vault-browser" id="install-firefox">
-            <h4>Firefox</h4>
+            <h4>Firefox (115+)</h4>
             <ol class="vault-substeps">
               <li>
-                Open:
+                Paste this and hit Enter:
                 <div class="vault-copy-row">
                   <code id="ff-url">about:debugging#/runtime/this-firefox</code>
                   <button type="button" class="vault-btn vault-btn--sm" id="copy-ff-url">Copy</button>
                 </div>
               </li>
               <li>Click <strong>Load Temporary Add-on…</strong></li>
-              <li>Select <code>manifest.json</code> inside the unzipped folder</li>
-              <li>Open the puzzle menu → pin <strong>Passfill</strong></li>
+              <li>Select <code>manifest.json</code> inside the unzipped folder (not the zip).</li>
+              <li>Pin Passfill from the extensions menu.</li>
             </ol>
             <p class="vault-step__tip">
-              Firefox temporary add-ons clear when you fully quit Firefox — reload the same folder after a restart, or later publish to AMO for a permanent install (free).
-              Needs Firefox 115+.
+              Why “temporary”? Firefox will not permanently install unsigned free add-ons from a random zip
+              without their store (AMO) or a signed build. Temporary load is the free path.
+              After a full Firefox quit, open the same debugging page and load <code>manifest.json</code> again — same folder, 10 seconds.
             </p>
           </div>
+        </div>
+      </li>
+      <li class="vault-step">
+        <div class="vault-step__n">4</div>
+        <div class="vault-step__body">
+          <h3>First run (60 seconds)</h3>
+          <ol class="vault-substeps">
+            <li>Click the Passfill icon → open the popup.</li>
+            <li><strong>Enable AES lock</strong> — set a master passphrase (min 8 chars). This encrypts saved logins on disk.</li>
+            <li>Open any signup page → focus the password field → click the green <strong>⚡ gen</strong> chip (or Generate in the popup).</li>
+            <li>When Passfill asks to save, hit <strong>Save</strong> if you want it remembered.</li>
+            <li>Leave and come back later → use the <strong>Fill</strong> bar. Done.</li>
+          </ol>
+          <p class="vault-step__tip">
+            Permissions you will see (storage, access to sites) exist so Passfill can detect password fields
+            and store the vault <em>on your device</em>. Nothing is uploaded to REHNOVA.
+          </p>
         </div>
       </li>
     </ol>
 
     <div class="vault-after">
-      <h3>First run</h3>
+      <h3>Checklist if something fails</h3>
       <ul>
-        <li>Popup → <strong>Enable AES lock</strong> (recommended)</li>
-        <li>Signup form → focus password → <strong>⚡ gen</strong></li>
-        <li>When asked → <strong>Save</strong> · next visit → <strong>Fill</strong></li>
+        <li>Selected the <strong>folder</strong>, not the <code>.zip</code>?</li>
+        <li>Folder still has <code>manifest.json</code> at the root?</li>
+        <li>Developer mode still ON?</li>
+        <li>Moved the folder after install? → Load unpacked again on the new path.</li>
+        <li>Firefox quit fully? → Load Temporary Add-on again.</li>
       </ul>
     </div>
+
+    {# Compact footer tip — not a separate page section #}
+    <footer class="vault-coffee" id="coffee">
+      <div class="vault-coffee__label">☕ Buy me a coffee <span>(optional tip)</span></div>
+      {% if wallets_configured %}
+      <div class="vault-coffee__rows">
+        {% for w in wallets %}
+        <div class="vault-coffee__row" data-wallet>
+          <span class="vault-coffee__sym">{{ w.symbol }}</span>
+          <code class="vault-coffee__addr" data-addr>{{ w.address }}</code>
+          <button type="button" class="vault-btn vault-btn--sm" data-copy-addr>Copy</button>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="vault-coffee__hint">
+        Tips via BTC / ETH — ask for an address at
+        <a href="mailto:{{ donate_contact }}">{{ donate_contact }}</a>
+        (or set addresses in <code>data/donate.py</code>).
+      </p>
+      {% endif %}
+    </footer>
   </section>
 
   <section class="vault-faq">
-    <h2>Privacy</h2>
+    <h2>Privacy (short)</h2>
     <p>
-      Local only. No cloud. Contact:
-      <a href="mailto:rehnova@proton.me">rehnova@proton.me</a>
-      ·
-      <a href="{{ url_for('static', filename='downloads/passfill-privacy.html') }}">full privacy policy</a>
-      ·
-      <a href="{{ url_for('tools') }}">tools lab</a>
+      Local vault only. No REHNOVA cloud sync. Optional AES master lock.
+      Full policy:
+      <a href="{{ url_for('static', filename='downloads/passfill-privacy.html') }}">passfill privacy</a>
+      · Tools:
+      <a href="{{ url_for('tools') }}">lab</a>
     </p>
   </section>
 </section>
@@ -157,11 +303,11 @@
   var ua = navigator.userAgent || '';
   var isFF = /Firefox\//.test(ua);
   var isEdge = /Edg\//.test(ua);
-  var isBrave = !!(navigator.brave);
+  var isBrave = !!(navigator.brave && navigator.brave.isBrave);
   var code = document.getElementById('ext-url');
   if (code) {
     if (isEdge) code.textContent = 'edge://extensions';
-    else if (/Brave/i.test(ua) || isBrave) code.textContent = 'brave://extensions';
+    else if (isBrave) code.textContent = 'brave://extensions';
     else code.textContent = 'chrome://extensions';
   }
   function bindCopy(btnId, codeId) {
@@ -172,15 +318,31 @@
       var t = el.textContent;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(t).then(function () {
+          var old = btn.textContent;
           btn.textContent = 'Copied';
-          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+          setTimeout(function () { btn.textContent = old; }, 1500);
         });
       }
     });
   }
   bindCopy('copy-ext-url', 'ext-url');
   bindCopy('copy-ff-url', 'ff-url');
-  // Soft highlight matching browser
+
+  document.querySelectorAll('[data-copy-addr]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var box = btn.closest('[data-wallet]');
+      var addr = box && box.querySelector('[data-addr]');
+      if (!addr) return;
+      var t = addr.textContent.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+        });
+      }
+    });
+  });
+
   var cr = document.getElementById('install-chromium');
   var ff = document.getElementById('install-firefox');
   if (isFF && ff) ff.classList.add('is-you');

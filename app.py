@@ -7,6 +7,7 @@ from data.articles import (
     get_related_articles,
 )
 from data.tools import get_all_tools, get_tool, get_tool_categories
+from data.donate import donate_context
 
 app = Flask(__name__)
 
@@ -52,7 +53,7 @@ def tools():
 @app.route('/passfill', methods=['GET'])
 def vault():
     """REHNOVA Passfill — free download + install (Chrome / Firefox / Edge)."""
-    return render_template('vault.html')
+    return render_template('vault.html', **donate_context())
 
 
 @app.route('/tools/<slug>', methods=['GET'])

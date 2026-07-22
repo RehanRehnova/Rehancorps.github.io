@@ -253,9 +253,10 @@ No bloat. Just ops.`,
 (function () {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Tools hub: never hide with reveal — mobile Safari was vanishing the page
-     (parent section got data-reveal → opacity 0 and never re-showed). */
-  document.querySelectorAll('.tools-page, .tools-page *').forEach((el) => {
+  /* Never opacity-hide these — tall blocks fail IO threshold and stay invisible */
+  const REVEAL_SKIP =
+    '.tools-page, .tools-page *, .art-single, .art-single *, .art-body, .art-body *, .vault-page, .vault-page *';
+  document.querySelectorAll(REVEAL_SKIP).forEach((el) => {
     el.removeAttribute('data-reveal');
     el.removeAttribute('data-reveal-delay');
     el.classList.remove('is-revealed');
@@ -268,16 +269,25 @@ No bloat. Just ops.`,
 
   function mark(el) {
     if (!el || el.hasAttribute('data-reveal')) return;
-    /* Never hide tools hub or anything inside it */
-    if (el.classList && el.classList.contains('tools-page')) return;
-    if (el.closest && el.closest('.tools-page')) return;
+    if (el.closest && (
+      el.closest('.tools-page') ||
+      el.closest('.art-single') ||
+      el.closest('.art-body') ||
+      el.closest('.vault-page')
+    )) return;
+    if (el.classList && (
+      el.classList.contains('tools-page') ||
+      el.classList.contains('art-single') ||
+      el.classList.contains('art-body') ||
+      el.classList.contains('vault-page')
+    )) return;
     el.setAttribute('data-reveal', '');
   }
 
   /* Auto-tag major blocks so every page gets motion without hand-wiring everything */
   document.querySelectorAll(
     [
-      'main.page > section:not(.tools-page)',
+      'main.page > section:not(.tools-page):not(.art-single):not(.vault-page)',
       'main.page > .faded-line + section:not(.tools-page)',
       '.hero__left',
       '.hero__right',
@@ -287,11 +297,6 @@ No bloat. Just ops.`,
       '.art-head',
       '.art-filters',
       '.art-row',
-      '.art-single__head',
-      '.art-hero',
-      '.art-share',
-      '.art-body',
-      '.art-related',
       '.contact__left',
       '.contact__right',
       '.metal-svc',
