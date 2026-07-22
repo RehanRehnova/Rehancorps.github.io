@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --green: #00e08f;
   --border: rgba(255, 255, 255, .08);
   --font-body: 'Source Code Pro', ui-monospace, monospace;
@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-display);
 }
 
-/* Subtle reveal — opacity + 12px rise, no bounce */
+/* Subtle reveal â€” opacity + 12px rise, no bounce */
 [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 14px, 0);
@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6,
       justify-content: space-between;
     }
 
-    /* LOGO — same user-secret mark as anon@proton + REHNOVA (desktop only) */
+    /* LOGO â€” same user-secret mark as anon@proton + REHNOVA (desktop only) */
     .nav__logo {
       display: flex;
       align-items: center;
@@ -405,7 +405,7 @@ h1, h2, h3, h4, h5, h6,
 .hero__line{width:24px;height:1px;background:rgba(0,224,143,.6)}
 .hero__kicker{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--green);font-family:var(--font-body),monospace}
 
-/* Dragon — brighter, emerges from pure black (not a photo plate) */
+/* Dragon â€” brighter, emerges from pure black (not a photo plate) */
 .hero__dragon{
   position: absolute;
   z-index: 0;
@@ -445,7 +445,7 @@ h1, h2, h3, h4, h5, h6,
   pointer-events: none;
   background:
     radial-gradient(ellipse 50% 45% at 62% 42%, rgba(220,220,230,.05), transparent 65%),
-    /* light edge dissolve into page black — no hard photo edge */
+    /* light edge dissolve into page black â€” no hard photo edge */
     radial-gradient(ellipse 95% 70% at 78% 55%, transparent 35%, rgba(8,8,8,.4) 70%, #080808 92%);
   mix-blend-mode: normal;
 }
@@ -529,7 +529,7 @@ h1, h2, h3, h4, h5, h6,
   .art-banner{aspect-ratio: 16/7; max-height: 160px; margin-bottom: 28px}
 }
 
-/* Contact — dragon tail wraps the channel */
+/* Contact â€” dragon tail wraps the channel */
 .contact{
   position: relative;
   overflow: hidden;
@@ -666,7 +666,7 @@ h1, h2, h3, h4, h5, h6,
 .hero__desc{margin-top:28px;padding:40px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.45)}
 .hero__desc b{color:rgba(255,255,255,.85);font-weight:600}
 
-/* Metallic Services redirect — about section, below cards */
+/* Metallic Services redirect â€” about section, below cards */
 .metal-svc{
   --steel-hi:#e8e8ea;
   --steel-mid:#9a9aa0;
@@ -827,7 +827,7 @@ h1, h2, h3, h4, h5, h6,
 @media(min-width:641px) and (max-width:1023px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.cards{grid-template-columns:repeat(2,1fr);gap:16px}}
 
-/* Cut-corner metal frame — same language as .metal-svc */
+/* Cut-corner metal frame â€” same language as .metal-svc */
 .card{
   --cut:16px;
   position:relative;
@@ -980,7 +980,7 @@ h1, h2, h3, h4, h5, h6,
 .card__t{position:relative;z-index:1;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#fff;margin-bottom:8px;margin-top:24px}
 .card__d{position:relative;z-index:1;font-size:13px;line-height:1.5;color:rgba(255,255,255,.5);max-width:28ch}
 .term{margin-top:24px;background:#0a0a0a;border:1px solid rgba(25 five,2 five,2 five,.08);border-radius:12px;overflow:hidden}
-.term__h{height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid rgba(2 five,2 five,2 five,.06);background:rgba(2 five,2 five,2 five,.0２);font-family:var(--font-body);font-size:10px;color:rgba( twenty five)}
+.term__h{height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid rgba(2 five,2 five,2 five,.06);background:rgba(2 five,2 five,2 five,.0ï¼’);font-family:var(--font-body);font-size:10px;color:rgba( twenty five)}
 .term__b b{color:var(--green);font-weight:500}
 
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -1343,7 +1343,7 @@ height: 100%;
 }
 .svc-cta .metal-svc{margin-top:0}
 
-/* ========== ARTICLES — pitch black, minimal, no metal ========== */
+/* ========== ARTICLES â€” pitch black, minimal, no metal ========== */
 .art-page{
   min-height:70vh;
   background:#000;
@@ -1424,7 +1424,7 @@ height: 100%;
 .art-row:hover .art-row__img{transform:scale(1.04);filter:brightness(1.08) contrast(1.05)}
 .art-row[hidden]{display:none}
 
-/* List thumbnail — restrained, pitch-black frame */
+/* List thumbnail â€” restrained, pitch-black frame */
 .art-row__media{
   position:relative;
   overflow:hidden;
@@ -1552,7 +1552,7 @@ height: 100%;
   padding:5px 10px;
 }
 
-/* Article share bar — copy / social / save */
+/* Article share bar â€” copy / social / save */
 .art-share{
   display:flex;
   flex-wrap:wrap;
@@ -1650,7 +1650,7 @@ height: 100%;
   .art-hero{max-height:420px;margin:32px 0 12px}
 }
 
-/* Markdown body — always visible (no data-reveal hide), white text */
+/* Markdown body â€” always visible (no data-reveal hide), white text */
 .art-body,
 .art-body[data-reveal]{
   margin-top:36px;
@@ -1742,7 +1742,7 @@ height: 100%;
 }
 .art-body em{color:rgba(255,255,255,.95)}
 
-/* Pygments / codehilite — readable on dark */
+/* Pygments / codehilite â€” readable on dark */
 .art-body .highlight{background:#0c0c0c}
 .art-body .highlight .c,
 .art-body .highlight .c1{color:rgba(255,255,255,.45)}
@@ -1824,12 +1824,12 @@ height: 100%;
 }
 @media(min-width:900px){
   .tools-page{
-    isolation:isolate; /* desktop blend only — avoids mobile Safari wipe-out */
+    isolation:isolate; /* desktop blend only â€” avoids mobile Safari wipe-out */
     padding:140px 48px 120px;
   }
 }
 
-/* Tools dragon — BG layer (desktop: screen blend; mobile: simple fade, always visible) */
+/* Tools dragon â€” BG layer (desktop: screen blend; mobile: simple fade, always visible) */
 .tools-dragon{
   position:absolute;
   z-index:0;
@@ -1894,7 +1894,7 @@ height: 100%;
   }
   .tools-dragon__img{
     object-position:50% 22%;
-    /* NO mix-blend on mobile — Safari often composites to pure black */
+    /* NO mix-blend on mobile â€” Safari often composites to pure black */
     mix-blend-mode:normal;
     -webkit-mask-image:
       linear-gradient(180deg, transparent 0%, #000 12%, #000 55%, transparent 100%),
@@ -2409,6 +2409,8 @@ height: 100%;
 }
 
 /* -- Tools vault banner -- */
+
+/* ── Tools vault banner ── */
 .tools-vault-banner{
   max-width:1100px;
   margin:0 auto 28px;
@@ -2459,7 +2461,7 @@ height: 100%;
   .tools-vault-banner__go{width:100%;text-align:right}
 }
 
-/* -- Vault install page -- */
+/* ── Vault / Passfill ── */
 .vault-page{
   max-width:800px;
   margin:0 auto;
@@ -2522,7 +2524,21 @@ height: 100%;
   background:rgba(0,224,143,.2);
   border-color:var(--green);
 }
+.vault-btn--quiet{
+  border-color:transparent;
+  color:rgba(255,255,255,.45);
+}
+.vault-btn--quiet:hover{
+  color:rgba(255,255,255,.8);
+  background:rgba(255,255,255,.04);
+  border-color:transparent;
+}
 .vault-btn--sm{height:32px;padding:0 12px;font-size:11px}
+.vault-inline-link{
+  color:var(--green);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
 
 .vault-features{
   display:grid;
@@ -2551,6 +2567,7 @@ height: 100%;
   color:rgba(255,255,255,.42);
 }
 
+.vault-install{margin-bottom:48px}
 .vault-install__h{
   font-family:var(--font-display);
   font-size:1.35rem;font-weight:800;
@@ -2592,7 +2609,8 @@ height: 100%;
   margin-bottom:10px;
 }
 .vault-step__body code,
-.vault-substeps code{
+.vault-substeps code,
+.vault-acc__body code{
   font-family:var(--font-body);
   font-size:11px;
   color:var(--green);
@@ -2619,7 +2637,7 @@ height: 100%;
   padding:18px;
   border:1px solid rgba(0,224,143,.2);
   background:rgba(0,224,143,.04);
-  margin-bottom:40px;
+  margin-bottom:28px;
 }
 .vault-after h3{
   font-family:var(--font-display);
@@ -2634,18 +2652,6 @@ height: 100%;
   color:rgba(255,255,255,.5);
   line-height:1.65;
 }
-.vault-faq h2{
-  font-family:var(--font-display);
-  font-size:1.1rem;font-weight:700;
-  margin-bottom:10px;
-}
-.vault-faq p{
-  font-size:13px;line-height:1.55;
-  color:rgba(255,255,255,.42);
-  margin-bottom:12px;
-}
-.vault-faq a{color:var(--green)}
-
 .vault-browser{
   margin-top:14px;
   padding:14px 12px;
@@ -2666,30 +2672,56 @@ height: 100%;
 }
 .vault-browser.is-you h4{color:var(--green)}
 
-/* -- Passfill: why + support -- */
-.vault-why{margin:48px 0 40px}
-.vault-why__grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
+/* Why — dropdowns */
+.vault-why{margin:0 0 40px}
+.vault-acc{
+  display:flex;flex-direction:column;gap:8px;
   margin-bottom:18px;
 }
-@media(max-width:699px){
-  .vault-why__grid{grid-template-columns:1fr}
+.vault-acc__item{
+  border:1px solid rgba(255,255,255,.1);
+  background:#0a0a0a;
 }
-.vault-why__card{
-  padding:16px 14px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.02);
+.vault-acc__item[open]{
+  border-color:rgba(0,224,143,.3);
+  background:#0c0c0c;
 }
-.vault-why__card h3{
+.vault-acc__sum{
+  list-style:none;
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;
+  cursor:pointer;
+  user-select:none;
+}
+.vault-acc__sum::-webkit-details-marker{display:none}
+.vault-acc__n{
+  font-family:var(--font-body);
+  font-size:11px;letter-spacing:.12em;
+  color:var(--green);
+  flex-shrink:0;
+}
+.vault-acc__t{
+  flex:1;
   font-family:var(--font-display);
-  font-size:13px;font-weight:700;
-  color:#fff;margin-bottom:8px;line-height:1.35;
+  font-size:14px;font-weight:700;
+  color:rgba(255,255,255,.92);
 }
-.vault-why__card p{
-  font-size:12.5px;line-height:1.55;
-  color:rgba(255,255,255,.88);margin:0;
+.vault-acc__chev{
+  font-size:11px;
+  color:rgba(255,255,255,.35);
+  transition:transform .2s;
+}
+.vault-acc__item[open] .vault-acc__chev{transform:rotate(180deg);color:var(--green)}
+.vault-acc__body{
+  padding:0 16px 16px;
+  margin:0 16px;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:12px;
+}
+.vault-acc__body p{
+  font-size:13px;line-height:1.55;
+  color:rgba(255,255,255,.7);
+  margin:0;
 }
 .vault-why__truth{
   padding:16px 16px;
@@ -2700,126 +2732,155 @@ height: 100%;
 }
 .vault-why__truth strong{color:var(--green)}
 
-.vault-support{
-  margin:48px 0 36px;
-  padding:24px 18px;
-  border:1px solid rgba(255,255,255,.1);
-  background:linear-gradient(180deg,rgba(0,224,143,.06),rgba(255,255,255,.02));
+.vault-faq h2{
+  font-family:var(--font-display);
+  font-size:1.1rem;font-weight:700;
+  margin-bottom:10px;
 }
-.vault-support__head{
-  display:flex;gap:14px;align-items:flex-start;
-  margin-bottom:16px;
-}
-.vault-support__emoji{
-  font-size:28px;line-height:1;margin-top:2px;
-}
-.vault-support__why{
-  margin-bottom:18px;
+.vault-faq p{
   font-size:13px;line-height:1.55;
-  color:rgba(255,255,255,.9);
+  color:rgba(255,255,255,.42);
+  margin-bottom:12px;
 }
-.vault-support__why p{margin:0 0 8px}
-.vault-wallets{
-  display:flex;flex-direction:column;gap:12px;
-  margin-bottom:18px;
+.vault-faq a{color:var(--green)}
+
+/* Coffee — dark + green icons */
+.vault-tip{
+  margin-top:28px;
+  border:1px solid rgba(255,255,255,.09);
+  background:#090909;
 }
-.vault-wallet{
-  padding:14px 14px;
-  border:1px solid rgba(255,255,255,.1);
-  background:#0a0a0a;
+.vault-tip__head{
+  padding:16px 18px 12px;
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
-.vault-wallet__top{
-  display:flex;align-items:center;gap:12px;
-  margin-bottom:8px;
+.vault-tip__title-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
-.vault-wallet__sym{
-  min-width:48px;height:32px;
+.vault-tip__icon{
+  width:36px;height:36px;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(0,224,143,.4);
+  border:1px solid rgba(0,224,143,.35);
+  background:rgba(0,224,143,.08);
   color:var(--green);
-  font-size:11px;font-weight:800;letter-spacing:.06em;
+  font-size:14px;
+}
+.vault-tip__h{
   font-family:var(--font-display);
+  font-size:14px;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:#fff;
+  margin:0 0 3px;
 }
-.vault-wallet__name{
+.vault-tip__p{
+  font-size:11px;
+  color:rgba(255,255,255,.35);
+  margin:0;
+  letter-spacing:.04em;
+}
+.vault-tip__grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+}
+@media(max-width:640px){
+  .vault-tip__grid{grid-template-columns:1fr}
+  .vault-tip__card + .vault-tip__card{
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+}
+@media(min-width:641px){
+  .vault-tip__card + .vault-tip__card{
+    border-left:1px solid rgba(255,255,255,.06);
+  }
+}
+.vault-tip__card{
+  padding:16px 18px 18px;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.vault-tip__card-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.vault-tip__glyph{
+  width:40px;height:40px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(0,224,143,.35);
+  background:rgba(0,224,143,.08);
+  font-size:18px;
+  color:var(--green);
+}
+.vault-tip__glyph--txt{
+  font-size:11px;font-weight:800;
   font-family:var(--font-display);
-  font-size:14px;font-weight:700;color:#fff;
+  letter-spacing:.06em;
 }
-.vault-wallet__net{
-  font-size:11px;color:rgba(255,255,255,.45);
-  font-family:var(--font-body);
-}
-.vault-wallet__note{
-  font-size:11px;line-height:1.4;
-  color:rgba(255,255,255,.55);
-  margin:0 0 10px;
-}
-.vault-wallet__addr-row{
-  display:flex;flex-wrap:wrap;gap:8px;align-items:center;
-}
-.vault-wallet__addr{
+.vault-tip__id{
   flex:1;min-width:0;
-  display:block;
-  padding:10px 12px;
-  font-size:11px;line-height:1.4;
-  word-break:break-all;
+  display:flex;flex-direction:column;gap:2px;
+}
+.vault-tip__sym{
+  font-family:var(--font-display);
+  font-size:13px;font-weight:800;
+  letter-spacing:.08em;
+  color:#fff;
+}
+.vault-tip__name{
+  font-size:11px;
+  color:rgba(255,255,255,.35);
+}
+.vault-tip__copy{
+  flex-shrink:0;
+  display:inline-flex;align-items:center;gap:6px;
+  height:30px;padding:0 10px;
+  border:1px solid rgba(255,255,255,.12);
+  background:transparent;
+  color:rgba(255,255,255,.55);
+  font-size:10px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;
+  transition:border-color .15s, color .15s, background .15s;
+}
+.vault-tip__copy:hover{
+  border-color:rgba(0,224,143,.45);
   color:var(--green);
   background:rgba(0,224,143,.06);
-  border:1px solid rgba(0,224,143,.2);
+}
+.vault-tip__copy i{font-size:11px}
+.vault-tip__addr{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  font-size:11px;line-height:1.5;
+  word-break:break-all;
+  color:rgba(255,255,255,.7);
+  padding:11px 12px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#050505;
   font-family:var(--font-body),ui-monospace,monospace;
 }
-.vault-support__pending{
-  padding:16px;
-  border:1px dashed rgba(255,255,255,.15);
-  margin-bottom:16px;
-  font-size:13px;line-height:1.55;
-  color:rgba(255,255,255,.85);
+.vault-tip__empty{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 18px 18px;
+  font-size:12.5px;
+  color:rgba(255,255,255,.45);
 }
-.vault-support__pending a{color:var(--green)}
-.vault-support__foot{
-  font-size:12px;line-height:1.5;
-  color:rgba(255,255,255,.55);
-  margin:0;
-}
-.vault-support__foot a{color:var(--green)}
-
-/* Compact coffee footer inside install section */
-.vault-coffee{
-  margin-top:28px;
-  padding-top:18px;
-  border-top:1px solid rgba(255,255,255,.1);
-}
-.vault-coffee__label{
-  font-size:12px;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;
-  color:rgba(255,255,255,.75);
-  margin-bottom:10px;
-  font-family:var(--font-display);
-}
-.vault-coffee__label span{
-  font-weight:500;letter-spacing:0;text-transform:none;
-  color:rgba(255,255,255,.4);font-size:11px;
-}
-.vault-coffee__rows{display:flex;flex-direction:column;gap:8px}
-.vault-coffee__row{
-  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
-}
-.vault-coffee__sym{
-  min-width:40px;
-  font-size:11px;font-weight:800;
+.vault-tip__empty-icons{
+  display:flex;gap:10px;
+  font-size:20px;
   color:var(--green);
-  font-family:var(--font-display);
 }
-.vault-coffee__addr{
-  flex:1;min-width:0;
-  font-size:11px;word-break:break-all;
-  color:rgba(255,255,255,.9);
-  padding:8px 10px;
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(0,0,0,.35);
-  font-family:var(--font-body),ui-monospace,monospace;
+.vault-tip__empty a{
+  color:var(--green);
+  text-decoration:underline;
+  text-underline-offset:3px;
 }
-.vault-coffee__hint{
-  font-size:12px;line-height:1.5;
-  color:rgba(255,255,255,.65);margin:0;
-}
-.vault-coffee__hint a{color:var(--green)}
+.vault-tip__empty p{margin:0}

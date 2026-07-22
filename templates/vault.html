@@ -24,8 +24,8 @@
         <i class="fa-solid fa-download" aria-hidden="true"></i>
         Download free
       </a>
-      <a class="vault-btn" href="#why">Why these steps?</a>
-      <a class="vault-btn" href="#install">Install →</a>
+      <a class="vault-btn" href="#install">Install steps</a>
+      <a class="vault-btn vault-btn--quiet" href="#why">Why this way</a>
     </div>
     <p class="vault-hero__note">
       Free forever. No store fee. No REHNOVA account.
@@ -50,82 +50,13 @@
     </article>
   </div>
 
-  {# ── Why not one-click? ── #}
-  <section class="vault-why" id="why">
-    <h2 class="vault-install__h">Why install this way?</h2>
-    <p class="vault-install__lead">
-      You will download a zip and load it yourself. That is intentional — not laziness.
-      Read this once so the steps make sense.
-    </p>
-
-    <div class="vault-why__grid">
-      <article class="vault-why__card">
-        <h3>1. Google killed “Add from any website”</h3>
-        <p>
-          Years ago, sites could ship a one-click “Add to Chrome” button.
-          Google removed that for everyone except their <strong>Chrome Web Store</strong>.
-          There is no legal free magic button we can put on this page that installs into Chrome
-          without that store.
-        </p>
-      </article>
-      <article class="vault-why__card">
-        <h3>2. We refuse the paid store gate</h3>
-        <p>
-          Chrome’s store charges a developer registration fee and puts the package under their review rules.
-          Passfill is free tooling for operators and normal users. We host the zip on <strong>this site</strong>
-          (via GitHub → Vercel) so nobody pays Google just to hand you a local password tool.
-        </p>
-      </article>
-      <article class="vault-why__card">
-        <h3>3. “Load unpacked” is the honest free path</h3>
-        <p>
-          Chromium browsers still allow you to load an extension from a folder on <strong>your disk</strong>
-          when Developer mode is on. That is the supported way to run free, independent extensions
-          without a store listing. You are not “hacking Chrome” — you are choosing the open install path.
-        </p>
-      </article>
-      <article class="vault-why__card">
-        <h3>4. You keep control of the bits</h3>
-        <p>
-          You download the exact zip we publish. You unzip it. You point the browser at that folder.
-          No silent auto-update from a store you did not opt into. When we ship a new version,
-          you download again (or re-pack) on your terms. Credentials never go through a store account.
-        </p>
-      </article>
-      <article class="vault-why__card">
-        <h3>5. Why keep the folder after install?</h3>
-        <p>
-          “Load unpacked” does <strong>not</strong> copy the extension into a hidden vault and forget the path.
-          Chrome/Edge/Brave keep a pointer to that folder. If you delete or move it, the extension breaks
-          until you load it again. Park it somewhere permanent like
-          <code>Documents\rehnova-passfill</code>.
-        </p>
-      </article>
-      <article class="vault-why__card">
-        <h3>6. Firefox is slightly different (same idea)</h3>
-        <p>
-          Firefox free install without their store uses <strong>Load Temporary Add-on</strong>
-          from the debugging page. Same philosophy: you pick the files on disk.
-          Temporary add-ons unload when Firefox fully quits — that is Mozilla’s rule, not ours.
-          Reload the same <code>manifest.json</code> after a restart (takes seconds).
-        </p>
-      </article>
-    </div>
-
-    <div class="vault-why__truth">
-      <strong>Bottom line:</strong>
-      Store one-click = paid gatekeeper + their rules.
-      Free + local + under your control = download → unzip → load from disk.
-      Three steps once. After that, Passfill just sits in your browser like any other extension.
-    </div>
-  </section>
-
-  {# ── Install ── #}
+  {# ── Install (full steps, not dropdowns) ── #}
   <section class="vault-install" id="install">
     <h2 class="vault-install__h">Install — do this in order</h2>
     <p class="vault-install__lead">
       Steps 1–2 are identical for every browser. Step 3 splits: Chromium family vs Firefox.
       Your browser is highlighted when we can detect it.
+      <a class="vault-inline-link" href="#why">Why not one-click?</a>
     </p>
 
     <ol class="vault-steps">
@@ -162,7 +93,7 @@
             not Downloads (easy to “clean up” later by accident).
           </p>
           <p class="vault-step__tip">
-            Why not delete after install? See “Why keep the folder” above — the browser keeps using those files.
+            Why not delete after install? The browser keeps using those files — see “Why keep the folder” under Why this way.
           </p>
         </div>
       </li>
@@ -261,37 +192,174 @@
       </ul>
     </div>
 
-    {# Compact footer tip — not a separate page section #}
-    <footer class="vault-coffee" id="coffee">
-      <div class="vault-coffee__label">☕ Buy me a coffee <span>(optional tip)</span></div>
+    {# Dark coffee footer — green icons #}
+    <footer class="vault-tip" id="coffee">
+      <div class="vault-tip__head">
+        <div class="vault-tip__title-row">
+          <span class="vault-tip__icon" aria-hidden="true"><i class="fa-solid fa-mug-hot"></i></span>
+          <div>
+            <h3 class="vault-tip__h">Buy me a coffee</h3>
+            <p class="vault-tip__p">Optional tip · crypto only · no KYC</p>
+          </div>
+        </div>
+      </div>
       {% if wallets_configured %}
-      <div class="vault-coffee__rows">
+      <div class="vault-tip__grid">
         {% for w in wallets %}
-        <div class="vault-coffee__row" data-wallet>
-          <span class="vault-coffee__sym">{{ w.symbol }}</span>
-          <code class="vault-coffee__addr" data-addr>{{ w.address }}</code>
-          <button type="button" class="vault-btn vault-btn--sm" data-copy-addr>Copy</button>
+        <div class="vault-tip__card" data-wallet data-sym="{{ w.symbol | lower }}">
+          <div class="vault-tip__card-top">
+            {% if w.symbol == 'BTC' %}
+            <span class="vault-tip__glyph" aria-hidden="true"><i class="fa-brands fa-bitcoin"></i></span>
+            {% elif w.symbol == 'ETH' %}
+            <span class="vault-tip__glyph" aria-hidden="true"><i class="fa-brands fa-ethereum"></i></span>
+            {% else %}
+            <span class="vault-tip__glyph vault-tip__glyph--txt">{{ w.symbol }}</span>
+            {% endif %}
+            <div class="vault-tip__id">
+              <span class="vault-tip__sym">{{ w.symbol }}</span>
+              <span class="vault-tip__name">{{ w.name }}</span>
+            </div>
+            <button type="button" class="vault-tip__copy" data-copy-addr title="Copy {{ w.symbol }} address">
+              <i class="fa-regular fa-copy" aria-hidden="true"></i>
+              <span>Copy</span>
+            </button>
+          </div>
+          <code class="vault-tip__addr" data-addr>{{ w.address }}</code>
         </div>
         {% endfor %}
       </div>
       {% else %}
-      <p class="vault-coffee__hint">
-        Tips via BTC / ETH — ask for an address at
-        <a href="mailto:{{ donate_contact }}">{{ donate_contact }}</a>
-        (or set addresses in <code>data/donate.py</code>).
-      </p>
+      <div class="vault-tip__empty">
+        <div class="vault-tip__empty-icons" aria-hidden="true">
+          <i class="fa-brands fa-bitcoin"></i>
+          <i class="fa-brands fa-ethereum"></i>
+        </div>
+        <p>
+          BTC / ETH —
+          <a href="mailto:{{ donate_contact }}">{{ donate_contact }}</a>
+        </p>
+      </div>
       {% endif %}
     </footer>
   </section>
 
+  {# ── Why = dropdowns ── #}
+  <section class="vault-why" id="why">
+    <h2 class="vault-install__h">Why this way?</h2>
+    <p class="vault-install__lead">
+      Open a point if you want the reason. Install is above — you do not need this to finish setup.
+    </p>
+
+    <div class="vault-acc" id="why-acc">
+      <details class="vault-acc__item">
+        <summary class="vault-acc__sum">
+          <span class="vault-acc__n">01</span>
+          <span class="vault-acc__t">Google killed website one-click</span>
+          <i class="fa-solid fa-chevron-down vault-acc__chev" aria-hidden="true"></i>
+        </summary>
+        <div class="vault-acc__body">
+          <p>
+            Years ago, sites could ship a one-click “Add to Chrome” button.
+            Google removed that for everyone except their <strong>Chrome Web Store</strong>.
+            There is no legal free magic button we can put on this page that installs into Chrome without that store.
+          </p>
+        </div>
+      </details>
+
+      <details class="vault-acc__item">
+        <summary class="vault-acc__sum">
+          <span class="vault-acc__n">02</span>
+          <span class="vault-acc__t">We refuse the paid store gate</span>
+          <i class="fa-solid fa-chevron-down vault-acc__chev" aria-hidden="true"></i>
+        </summary>
+        <div class="vault-acc__body">
+          <p>
+            Chrome’s store charges a developer registration fee and puts the package under their review rules.
+            Passfill is free tooling. We host the zip on <strong>this site</strong> so nobody pays Google just to hand you a local password tool.
+          </p>
+        </div>
+      </details>
+
+      <details class="vault-acc__item">
+        <summary class="vault-acc__sum">
+          <span class="vault-acc__n">03</span>
+          <span class="vault-acc__t">“Load unpacked” is the honest free path</span>
+          <i class="fa-solid fa-chevron-down vault-acc__chev" aria-hidden="true"></i>
+        </summary>
+        <div class="vault-acc__body">
+          <p>
+            Chromium browsers still allow you to load an extension from a folder on <strong>your disk</strong>
+            when Developer mode is on. That is the supported way to run free, independent extensions
+            without a store listing. You are not “hacking Chrome” — you are choosing the open install path.
+          </p>
+        </div>
+      </details>
+
+      <details class="vault-acc__item">
+        <summary class="vault-acc__sum">
+          <span class="vault-acc__n">04</span>
+          <span class="vault-acc__t">You keep control of the bits</span>
+          <i class="fa-solid fa-chevron-down vault-acc__chev" aria-hidden="true"></i>
+        </summary>
+        <div class="vault-acc__body">
+          <p>
+            You download the exact zip we publish. You unzip it. You point the browser at that folder.
+            No silent auto-update from a store you did not opt into. When we ship a new version,
+            you download again on your terms. Credentials never go through a store account.
+          </p>
+        </div>
+      </details>
+
+      <details class="vault-acc__item">
+        <summary class="vault-acc__sum">
+          <span class="vault-acc__n">05</span>
+          <span class="vault-acc__t">Why keep the folder after install?</span>
+          <i class="fa-solid fa-chevron-down vault-acc__chev" aria-hidden="true"></i>
+        </summary>
+        <div class="vault-acc__body">
+          <p>
+            “Load unpacked” does <strong>not</strong> copy the extension into a hidden vault and forget the path.
+            Chrome/Edge/Brave keep a pointer to that folder. If you delete or move it, the extension breaks
+            until you load it again. Park it somewhere permanent like
+            <code>Documents\rehnova-passfill</code>.
+          </p>
+        </div>
+      </details>
+
+      <details class="vault-acc__item">
+        <summary class="vault-acc__sum">
+          <span class="vault-acc__n">06</span>
+          <span class="vault-acc__t">Firefox is slightly different</span>
+          <i class="fa-solid fa-chevron-down vault-acc__chev" aria-hidden="true"></i>
+        </summary>
+        <div class="vault-acc__body">
+          <p>
+            Firefox free install without their store uses <strong>Load Temporary Add-on</strong>
+            from the debugging page. Same philosophy: you pick the files on disk.
+            Temporary add-ons unload when Firefox fully quits — that is Mozilla’s rule, not ours.
+            Reload the same <code>manifest.json</code> after a restart (takes seconds).
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <div class="vault-why__truth">
+      <strong>Bottom line:</strong>
+      Store one-click = paid gatekeeper + their rules.
+      Free + local + under your control = download → unzip → load from disk.
+      Three steps once. After that, Passfill just sits in your browser like any other extension.
+    </div>
+  </section>
+
   <section class="vault-faq">
-    <h2>Privacy (short)</h2>
+    <h2>Privacy</h2>
     <p>
       Local vault only. No REHNOVA cloud sync. Optional AES master lock.
-      Full policy:
-      <a href="{{ url_for('static', filename='downloads/passfill-privacy.html') }}">passfill privacy</a>
-      · Tools:
-      <a href="{{ url_for('tools') }}">lab</a>
+      <a href="{{ url_for('static', filename='downloads/passfill-privacy.html') }}">policy</a>
+      ·
+      <a href="{{ url_for('tools') }}">tools</a>
+      ·
+      <a href="mailto:{{ donate_contact }}">{{ donate_contact }}</a>
     </p>
   </section>
 </section>
@@ -310,6 +378,7 @@
     else if (isBrave) code.textContent = 'brave://extensions';
     else code.textContent = 'chrome://extensions';
   }
+
   function bindCopy(btnId, codeId) {
     var btn = document.getElementById(btnId);
     var el = document.getElementById(codeId);
@@ -334,10 +403,13 @@
       var addr = box && box.querySelector('[data-addr]');
       if (!addr) return;
       var t = addr.textContent.trim();
+      var label = btn.querySelector('span');
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(t).then(function () {
-          btn.textContent = 'Copied';
-          setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+          if (label) label.textContent = 'Copied';
+          setTimeout(function () {
+            if (label) label.textContent = 'Copy';
+          }, 1600);
         });
       }
     });
@@ -347,6 +419,19 @@
   var ff = document.getElementById('install-firefox');
   if (isFF && ff) ff.classList.add('is-you');
   else if (cr) cr.classList.add('is-you');
+
+  /* Why accordion: one open at a time */
+  var acc = document.getElementById('why-acc');
+  if (acc) {
+    acc.querySelectorAll('details.vault-acc__item').forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        acc.querySelectorAll('details.vault-acc__item').forEach(function (other) {
+          if (other !== d) other.open = false;
+        });
+      });
+    });
+  }
 })();
 </script>
 {% endblock %}
