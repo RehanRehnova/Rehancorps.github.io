@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.title }} — rehnova tools{% endblock %}
+{% block content %}
+{% include 'tools/_shell_start.html' %}
+
+<div class="tool-panel">
+  <div class="tool-field">
+    <label for="re-pat">Pattern</label>
+    <input type="text" id="re-pat" placeholder="e.g. [A-Z]{2,}\d+" spellcheck="false">
+  </div>
+  <div class="tool-field">
+    <label>Flags</label>
+    <div class="tool-chips" id="re-flags">
+      <button type="button" class="tool-chip is-on" data-f="g">g</button>
+      <button type="button" class="tool-chip is-on" data-f="i">i</button>
+      <button type="button" class="tool-chip" data-f="m">m</button>
+      <button type="button" class="tool-chip" data-f="s">s</button>
+    </div>
+  </div>
+  <div class="tool-field">
+    <label for="re-text">Test string</label>
+    <textarea id="re-text" rows="6" placeholder="Paste text to match…" spellcheck="false"></textarea>
+  </div>
+  <div class="tool-field">
+    <label for="re-out">Matches</label>
+    <textarea id="re-out" rows="8" readonly placeholder="Results…" spellcheck="false"></textarea>
+  </div>
+  <div class="tool-actions">
+    <button type="button" class="tool-btn tool-btn--solid" id="re-run">Test</button>
+    <button type="button" class="tool-btn" id="re-copy">Copy results</button>
+  </div>
+  <p class="tool-hint" id="re-err"></p>
+</div>
+
+{% include 'tools/_shell_end.html' %}
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-regex.js') }}"></script>
+{% endblock %}

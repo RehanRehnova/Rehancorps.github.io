@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}REHNOVA Passfill — password generate, save &amp; fill{% endblock %}
+
+{% block content %}
+<section class="vault-page">
+  <header class="vault-hero">
+    <div class="vault-hero__kicker">
+      <span class="vault-hero__rule"></span>
+      <span> free · local · chrome · edge · firefox · brave</span>
+    </div>
+    <h1 class="vault-hero__h1">Passfill</h1>
+    <p class="vault-hero__p">
+      <strong>REHNOVA Passfill</strong> — generate strong passwords on signup fields,
+      save logins you trust, autofill when you come back.
+      AES-256-GCM lock. Nothing leaves your browser.
+    </p>
+    <div class="vault-hero__actions">
+      <a
+        class="vault-btn vault-btn--solid"
+        id="vault-dl"
+        href="{{ url_for('static', filename='downloads/rehnova-passfill.zip') }}"
+        download="rehnova-passfill.zip"
+      >
+        <i class="fa-solid fa-download" aria-hidden="true"></i>
+        Download free
+      </a>
+      <a class="vault-btn" href="#install">Install steps →</a>
+    </div>
+    <p class="vault-hero__note">
+      One package for Chromium browsers and Firefox. Hosted free on this site — no store fee.
+    </p>
+  </header>
+
+  <div class="vault-features">
+    <article class="vault-feat">
+      <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+      <h2>Generate</h2>
+      <p>Green chip on password fields. CSPRNG. Same idea as the tools lab.</p>
+    </article>
+    <article class="vault-feat">
+      <i class="fa-solid fa-key" aria-hidden="true"></i>
+      <h2>Save</h2>
+      <p>Confirm once. Username + password stored only on your machine.</p>
+    </article>
+    <article class="vault-feat">
+      <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+      <h2>Fill</h2>
+      <p>Return to the site → Passfill bar → one click refill.</p>
+    </article>
+  </div>
+
+  <section class="vault-install" id="install">
+    <h2 class="vault-install__h">Install</h2>
+    <p class="vault-install__lead">
+      Step 1–2 are the same for every browser. Step 3 depends on Chrome-family vs Firefox.
+    </p>
+
+    <ol class="vault-steps">
+      <li class="vault-step">
+        <div class="vault-step__n">1</div>
+        <div class="vault-step__body">
+          <h3>Download</h3>
+          <p>One zip. No account required.</p>
+          <a
+            class="vault-btn vault-btn--solid vault-btn--sm"
+            href="{{ url_for('static', filename='downloads/rehnova-passfill.zip') }}"
+            download="rehnova-passfill.zip"
+          >Download rehnova-passfill.zip</a>
+        </div>
+      </li>
+      <li class="vault-step">
+        <div class="vault-step__n">2</div>
+        <div class="vault-step__body">
+          <h3>Unzip</h3>
+          <p>
+            Extract so you have a folder containing <code>manifest.json</code>.
+            Keep that folder (don’t delete it after install).
+          </p>
+          <p class="vault-step__tip">
+            Example: <code>Documents\rehnova-passfill</code>
+          </p>
+        </div>
+      </li>
+      <li class="vault-step">
+        <div class="vault-step__n">3</div>
+        <div class="vault-step__body">
+          <h3>Load in your browser</h3>
+
+          <div class="vault-browser" id="install-chromium">
+            <h4>Chrome · Edge · Brave · Arc</h4>
+            <ol class="vault-substeps">
+              <li>
+                Open extensions:
+                <div class="vault-copy-row">
+                  <code id="ext-url">chrome://extensions</code>
+                  <button type="button" class="vault-btn vault-btn--sm" id="copy-ext-url">Copy</button>
+                </div>
+                <span class="vault-step__tip">Edge: <code>edge://extensions</code> · Brave: <code>brave://extensions</code></span>
+              </li>
+              <li>Turn <strong>Developer mode</strong> ON</li>
+              <li><strong>Load unpacked</strong> → select the unzipped folder</li>
+              <li>Pin <strong>Passfill</strong></li>
+            </ol>
+          </div>
+
+          <div class="vault-browser" id="install-firefox">
+            <h4>Firefox</h4>
+            <ol class="vault-substeps">
+              <li>
+                Open:
+                <div class="vault-copy-row">
+                  <code id="ff-url">about:debugging#/runtime/this-firefox</code>
+                  <button type="button" class="vault-btn vault-btn--sm" id="copy-ff-url">Copy</button>
+                </div>
+              </li>
+              <li>Click <strong>Load Temporary Add-on…</strong></li>
+              <li>Select <code>manifest.json</code> inside the unzipped folder</li>
+              <li>Open the puzzle menu → pin <strong>Passfill</strong></li>
+            </ol>
+            <p class="vault-step__tip">
+              Firefox temporary add-ons clear when you fully quit Firefox — reload the same folder after a restart, or later publish to AMO for a permanent install (free).
+              Needs Firefox 115+.
+            </p>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <div class="vault-after">
+      <h3>First run</h3>
+      <ul>
+        <li>Popup → <strong>Enable AES lock</strong> (recommended)</li>
+        <li>Signup form → focus password → <strong>⚡ gen</strong></li>
+        <li>When asked → <strong>Save</strong> · next visit → <strong>Fill</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="vault-faq">
+    <h2>Privacy</h2>
+    <p>
+      Local only. No cloud. Contact:
+      <a href="mailto:rehnova@proton.me">rehnova@proton.me</a>
+      ·
+      <a href="{{ url_for('static', filename='downloads/passfill-privacy.html') }}">full privacy policy</a>
+      ·
+      <a href="{{ url_for('tools') }}">tools lab</a>
+    </p>
+  </section>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  var ua = navigator.userAgent || '';
+  var isFF = /Firefox\//.test(ua);
+  var isEdge = /Edg\//.test(ua);
+  var isBrave = !!(navigator.brave);
+  var code = document.getElementById('ext-url');
+  if (code) {
+    if (isEdge) code.textContent = 'edge://extensions';
+    else if (/Brave/i.test(ua) || isBrave) code.textContent = 'brave://extensions';
+    else code.textContent = 'chrome://extensions';
+  }
+  function bindCopy(btnId, codeId) {
+    var btn = document.getElementById(btnId);
+    var el = document.getElementById(codeId);
+    if (!btn || !el) return;
+    btn.addEventListener('click', function () {
+      var t = el.textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+        });
+      }
+    });
+  }
+  bindCopy('copy-ext-url', 'ext-url');
+  bindCopy('copy-ff-url', 'ff-url');
+  // Soft highlight matching browser
+  var cr = document.getElementById('install-chromium');
+  var ff = document.getElementById('install-firefox');
+  if (isFF && ff) ff.classList.add('is-you');
+  else if (cr) cr.classList.add('is-you');
+})();
+</script>
+{% endblock %}

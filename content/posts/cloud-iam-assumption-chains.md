@@ -5,7 +5,7 @@ date: 2026-07-12
 category: Cloud
 excerpt: How small IAM misconfigurations become tenant-wide impact — role assumption, federation, and why "least privilege" often is not.
 thumbnail: images/articles/cloud-iam-assumption-chains.jpg
-author: Rehan
+author: Anonymous
 author_role: Offensive Operator
 tags: [AWS, Azure, IAM, Cloud]
 featured: false

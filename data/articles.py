@@ -72,7 +72,7 @@ def _load_post(filepath):
         'excerpt': post.get('excerpt', ''),
         'content': html_content,
         'thumbnail': post.get('thumbnail', ''),
-        'author': post.get('author', 'Rehan'),
+        'author': post.get('author', 'Anonymous'),
         'author_role': post.get('author_role', 'Offensive Operator'),
         'tags': post.get('tags', []) or [],
         'read_time': post.get('read_time', '5 min read'),

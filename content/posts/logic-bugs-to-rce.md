@@ -5,7 +5,7 @@ date: 2026-07-15
 category: Exploit Dev
 excerpt: Why the best findings are rarely "buffer overflow in 2026" — and how authorization logic, SSRF, and deserialization still become full compromise.
 thumbnail: images/articles/logic-bugs-to-rce.jpg
-author: Rehan
+author: Anonymous
 author_role: Offensive Operator
 tags: [Exploit Dev, AppSec, RCE]
 featured: true

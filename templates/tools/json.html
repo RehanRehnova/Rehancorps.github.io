@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.title }} — rehnova tools{% endblock %}
+{% block content %}
+{% include 'tools/_shell_start.html' %}
+
+<div class="tool-panel">
+  <div class="tool-grid-2">
+    <div class="tool-field">
+      <label for="json-in">JSON input</label>
+      <textarea id="json-in" rows="12" placeholder='{"ok":true}' spellcheck="false"></textarea>
+    </div>
+    <div class="tool-field">
+      <label for="json-out">Output</label>
+      <textarea id="json-out" rows="12" readonly placeholder="Formatted…" spellcheck="false"></textarea>
+    </div>
+  </div>
+  <div class="tool-actions">
+    <button type="button" class="tool-btn tool-btn--solid" id="json-pretty">Pretty</button>
+    <button type="button" class="tool-btn tool-btn--solid" id="json-minify">Minify</button>
+    <button type="button" class="tool-btn" id="json-copy">Copy out</button>
+  </div>
+  <p class="tool-hint" id="json-err"></p>
+</div>
+
+{% include 'tools/_shell_end.html' %}
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-json.js') }}"></script>
+{% endblock %}

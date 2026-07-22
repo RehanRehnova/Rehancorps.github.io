@@ -4,7 +4,18 @@
 
 {% block content %}
 <section class="tools-page">
-  <header class="tools-head" data-reveal>
+  {# Different dragon than hero (dragon-articles) — blended into page black, not a framed plate #}
+  <div class="tools-dragon" aria-hidden="true">
+    <img
+      src="{{ url_for('static', filename='images/dragon-articles.jpg') }}"
+      alt=""
+      class="tools-dragon__img"
+      decoding="async"
+    >
+    <span class="tools-dragon__mist"></span>
+  </div>
+
+  <header class="tools-head">
     <div class="tools-head__kicker">
       <span class="tools-head__rule"></span>
       <span> public utility lab</span>
@@ -16,17 +27,59 @@
     </p>
   </header>
 
-  <div class="tools-hero" data-reveal data-reveal-delay="80">
-    <img src="{{ url_for('static', filename='images/tools/hub.jpg') }}" alt="" class="tools-hero__img">
-    <span class="tools-hero__fade" aria-hidden="true"></span>
+  <a href="{{ url_for('vault') }}" class="tools-vault-banner">
+    <span class="tools-vault-banner__ic" aria-hidden="true"><i class="fa-solid fa-key"></i></span>
+    <span class="tools-vault-banner__body">
+      <strong>REHNOVA Passfill</strong>
+      Extension — generate passwords on any site, save logins, autofill. Chrome · Edge · Firefox. AES lock. Local only.
+    </span>
+    <span class="tools-vault-banner__go">get free →</span>
+  </a>
+
+  <div class="tools-nav" id="tools-nav">
+    <label class="tools-search" for="tools-search">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input
+        type="search"
+        id="tools-search"
+        name="q"
+        placeholder="Search tools — nmap, jwt, hash, cidr…"
+        autocomplete="off"
+        spellcheck="false"
+        enterkeyhint="search"
+      >
+      <button type="button" class="tools-search__clear" id="tools-search-clear" hidden aria-label="Clear search">×</button>
+    </label>
+
+    <div class="tools-filters" role="tablist" aria-label="Filter by category">
+      <button type="button" class="tools-filter is-on" role="tab" aria-selected="true" data-cat="all">
+        All <span class="tools-filter__n">{{ tools|length }}</span>
+      </button>
+      {% for cat in categories %}
+      <button type="button" class="tools-filter" role="tab" aria-selected="false" data-cat="{{ cat }}">
+        {{ cat }}
+        <span class="tools-filter__n">{{ tools | selectattr('category', 'equalto', cat) | list | length }}</span>
+      </button>
+      {% endfor %}
+    </div>
+
+    <p class="tools-nav__status" id="tools-status" aria-live="polite"></p>
   </div>
 
   {% for cat in categories %}
-  <section class="tools-section" data-reveal>
+  <section class="tools-section" data-tools-section data-cat="{{ cat }}">
     <h2 class="tools-section__h">{{ cat }}</h2>
     <div class="tools-grid">
       {% for t in tools if t.category == cat %}
-      <a href="{{ url_for('tool_detail', slug=t.slug) }}" class="tools-card" data-reveal data-reveal-delay="{{ loop.index0 * 60 }}">
+      <a
+        href="{{ url_for('tool_detail', slug=t.slug) }}"
+        class="tools-card"
+        data-tools-card
+        data-cat="{{ t.category }}"
+        data-title="{{ t.title | e }}"
+        data-slug="{{ t.slug }}"
+        data-excerpt="{{ t.excerpt | e }}"
+      >
         <div class="tools-card__media">
           <img src="{{ url_for('static', filename=t.thumbnail) }}" alt="" loading="lazy">
           <span class="tools-card__fade" aria-hidden="true"></span>
@@ -46,8 +99,16 @@
   </section>
   {% endfor %}
 
-  <p class="tools-note" data-reveal>
+  <p class="tools-empty" id="tools-empty" hidden>
+    No tools match. Try another keyword or category.
+  </p>
+
+  <p class="tools-note">
     All processing is local. Nmap builder only generates commands for you to run on systems you are authorized to test.
   </p>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-filter.js') }}"></script>
 {% endblock %}

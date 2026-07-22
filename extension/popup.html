@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REHNOVA Passfill</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <div class="head__mark">P</div>
+    <div class="head__text">
+      <h1 class="head__t">Passfill</h1>
+      <p class="head__s" id="headSub">generate · save · fill · local</p>
+    </div>
+    <button type="button" class="btn btn--ghost" id="lockBtn" hidden title="Lock vault">Lock</button>
+  </header>
+
+  <!-- Lock / setup gate -->
+  <section class="card gate" id="gate" hidden>
+    <div class="card__label" id="gateLabel">Unlock vault</div>
+    <p class="gate__hint" id="gateHint">Enter your master passphrase. Credentials stay encrypted on disk.</p>
+    <input type="password" id="gatePass" class="out out--pass" placeholder="Master passphrase" autocomplete="current-password">
+    <input type="password" id="gatePass2" class="out out--pass" placeholder="Confirm passphrase" hidden autocomplete="new-password">
+    <div class="actions">
+      <button type="button" class="btn btn--solid" id="gateGo">Unlock</button>
+    </div>
+    <p class="msg" id="gateMsg"></p>
+  </section>
+
+  <div id="app">
+    <section class="card">
+      <div class="card__label">Generate</div>
+      <div class="row">
+        <label class="field">
+          <span>Len</span>
+          <input type="number" id="len" min="8" max="128" value="20">
+        </label>
+        <div class="chips" id="sets">
+          <button type="button" class="chip is-on" data-set="lower">a-z</button>
+          <button type="button" class="chip is-on" data-set="upper">A-Z</button>
+          <button type="button" class="chip is-on" data-set="digit">0-9</button>
+          <button type="button" class="chip is-on" data-set="symbol">sym</button>
+        </div>
+      </div>
+      <input type="text" id="out" class="out" readonly placeholder="Generate…" spellcheck="false">
+      <div class="actions">
+        <button type="button" class="btn btn--solid" id="gen">Generate</button>
+        <button type="button" class="btn" id="copy">Copy</button>
+        <button type="button" class="btn" id="fill">Fill page</button>
+      </div>
+      <p class="msg" id="msg"></p>
+    </section>
+
+    <section class="card">
+      <div class="card__label row-between">
+        <span>Vault</span>
+        <span class="count" id="count">0</span>
+      </div>
+      <div id="list" class="list"></div>
+      <p class="empty" id="empty">No saved logins yet. Generate on a signup form and hit Save.</p>
+    </section>
+
+    <section class="card card--tight">
+      <div class="card__label">Security</div>
+      <div id="secUnlocked" hidden>
+        <p class="sec-status" id="secStatus">Master lock: off (plaintext on disk)</p>
+        <div class="actions" id="secActions">
+          <button type="button" class="btn btn--solid" id="enableMaster">Enable AES lock</button>
+        </div>
+        <div id="masterForm" hidden>
+          <input type="password" id="newMaster" class="out out--pass" placeholder="New master passphrase (min 8)" autocomplete="new-password">
+          <input type="password" id="newMaster2" class="out out--pass" placeholder="Confirm" autocomplete="new-password">
+          <div class="actions">
+            <button type="button" class="btn btn--solid" id="saveMaster">Set master lock</button>
+            <button type="button" class="btn" id="cancelMaster">Cancel</button>
+          </div>
+        </div>
+        <div id="masterOn" hidden>
+          <div class="actions">
+            <button type="button" class="btn" id="changeMaster">Change passphrase</button>
+            <button type="button" class="btn" id="removeMaster">Remove lock</button>
+          </div>
+          <div id="changeForm" hidden>
+            <input type="password" id="oldMaster" class="out out--pass" placeholder="Current passphrase">
+            <input type="password" id="chgMaster" class="out out--pass" placeholder="New passphrase">
+            <input type="password" id="chgMaster2" class="out out--pass" placeholder="Confirm new">
+            <div class="actions">
+              <button type="button" class="btn btn--solid" id="doChangeMaster">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card--tight">
+      <div class="card__label">Backup</div>
+      <div class="actions">
+        <button type="button" class="btn" id="exportBtn">Export JSON</button>
+        <label class="btn btn--file">
+          Import
+          <input type="file" id="importFile" accept="application/json,.json" hidden>
+        </label>
+      </div>
+      <p class="msg" id="backupMsg"></p>
+    </section>
+
+    <section class="card card--tight">
+      <div class="card__label">Settings</div>
+      <label class="toggle">
+        <input type="checkbox" id="autoFill" checked>
+        <span>Offer autofill when a saved site is opened</span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="offerSave" checked>
+        <span>Offer to save after password entry</span>
+      </label>
+      <button type="button" class="btn btn--danger" id="clearAll">Wipe entire vault</button>
+    </section>
+  </div>
+
+  <footer class="foot">REHNOVA Passfill · free · local-only · rehnova@proton.me</footer>
+
+  <script src="lib/password.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

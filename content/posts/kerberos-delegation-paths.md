@@ -5,7 +5,7 @@ date: 2026-07-10
 category: Identity
 excerpt: Unconstrained, constrained, and resource-based constrained delegation — how operators still chain identity paths when the domain looks "hardened."
 thumbnail: images/articles/kerberos-delegation-paths.jpg
-author: Rehan
+author: Anonymous
 author_role: Offensive Operator
 tags: [AD, Kerberos, Identity, Red Team]
 featured: true

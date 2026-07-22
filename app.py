@@ -48,6 +48,13 @@ def tools():
     )
 
 
+@app.route('/vault', methods=['GET'])
+@app.route('/passfill', methods=['GET'])
+def vault():
+    """REHNOVA Passfill — free download + install (Chrome / Firefox / Edge)."""
+    return render_template('vault.html')
+
+
 @app.route('/tools/<slug>', methods=['GET'])
 def tool_detail(slug):
     tool = get_tool(slug)

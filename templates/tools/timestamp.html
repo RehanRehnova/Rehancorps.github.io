@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.title }} — rehnova tools{% endblock %}
+{% block content %}
+{% include 'tools/_shell_start.html' %}
+
+<div class="tool-panel">
+  <div class="tool-grid-2">
+    <div class="tool-field">
+      <label for="ts-unix">Unix (seconds or ms)</label>
+      <input type="text" id="ts-unix" placeholder="e.g. 1710000000 or 1710000000000" spellcheck="false">
+    </div>
+    <div class="tool-field">
+      <label for="ts-iso">ISO / datetime string</label>
+      <input type="text" id="ts-iso" placeholder="2024-03-09T12:00:00Z" spellcheck="false">
+    </div>
+  </div>
+  <div class="tool-field">
+    <label for="ts-out">Result</label>
+    <textarea id="ts-out" rows="6" readonly placeholder="Converted values…" spellcheck="false"></textarea>
+  </div>
+  <div class="tool-actions">
+    <button type="button" class="tool-btn tool-btn--solid" id="ts-now">Now</button>
+    <button type="button" class="tool-btn tool-btn--solid" id="ts-from-unix">Unix → Date</button>
+    <button type="button" class="tool-btn tool-btn--solid" id="ts-from-iso">Date → Unix</button>
+    <button type="button" class="tool-btn" id="ts-copy">Copy result</button>
+  </div>
+  <p class="tool-hint" id="ts-err"></p>
+</div>
+
+{% include 'tools/_shell_end.html' %}
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tools-timestamp.js') }}"></script>
+{% endblock %}

@@ -44,6 +44,10 @@
                class="nav__link{% if request.endpoint in ('tools', 'tool_detail') %} nav__link--active{% endif %}">Tools</a>
           </li>
           <li>
+            <a href="{{ url_for('vault') }}"
+               class="nav__link{% if request.endpoint == 'vault' %} nav__link--active{% endif %}">Passfill</a>
+          </li>
+          <li>
             <a href="#contact" class="nav__link nav__link--pill">Contact</a>
           </li>
         </ul>

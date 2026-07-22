@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REHNOVA Passfill — Privacy Policy</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 640px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+      line-height: 1.55;
+      color: #1a1a1a;
+      background: #fafafa;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    ul { padding-left: 1.2rem; }
+    code { background: #eee; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+    a { color: #0a7; }
+  </style>
+</head>
+<body>
+  <h1>REHNOVA Passfill — Privacy Policy</h1>
+  <p class="meta">Last updated: 2026-07-23 · Free browser extension</p>
+
+  <p>
+    REHNOVA Passfill (“the Extension”) is a local password generator and credential vault.
+    It generates strong passwords, can remember logins you choose to save, and can fill them on return visits.
+    It is designed so that <strong>your data never leaves your device</strong> through this extension.
+  </p>
+
+  <h2>Data we collect</h2>
+  <p><strong>None remotely.</strong> The Extension does not operate analytics, ads, accounts, or telemetry servers.</p>
+
+  <h2>Data stored on your device</h2>
+  <ul>
+    <li>Generated passwords (only if you save them)</li>
+    <li>Website hostnames, usernames, and passwords you choose to save</li>
+    <li>Generator preferences (length, character sets, autofill toggles)</li>
+  </ul>
+  <p>
+    Storage uses the browser extension storage API (<code>chrome.storage.local</code> / equivalent).
+    When you enable the master lock, credentials are encrypted at rest with
+    <strong>AES-256-GCM</strong> and a key derived via <strong>PBKDF2-SHA256</strong> (310,000 iterations).
+    Your master passphrase is never written to disk.
+  </p>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><strong>storage</strong> — save vault data and settings on device</li>
+    <li><strong>activeTab / scripting</strong> — optional “Fill page” from the popup on the tab you open</li>
+    <li><strong>Host access (http/https)</strong> — detect password fields, offer generate/save/fill on websites you visit</li>
+  </ul>
+  <p>The Extension does not read page content for advertising or sell access to third parties.</p>
+
+  <h2>Network</h2>
+  <p>
+    The Extension does not transmit credentials, history, or vault contents to REHNOVA or any third party.
+    Websites you visit remain separate; filling a password only writes into form fields on that page at your action or confirmed autofill.
+  </p>
+
+  <h2>Backups</h2>
+  <p>
+    Export/import is user-initiated. Encrypted exports require your master passphrase.
+    Plaintext exports (if master lock is off) are your responsibility to protect.
+  </p>
+
+  <h2>Children</h2>
+  <p>The Extension is not directed at children under 13.</p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about this extension or privacy:<br>
+    <a href="mailto:rehnova@proton.me">rehnova@proton.me</a>
+  </p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the date above will be updated in the published package.</p>
+</body>
+</html>

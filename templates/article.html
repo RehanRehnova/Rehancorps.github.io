@@ -46,8 +46,65 @@
     </figure>
     {% endif %}
 
+    {# Share / copy / save — absolute URL built client-side for reliability #}
+    <div class="art-share" data-share-bar
+         data-share-title="{{ article.title | e }}"
+         data-share-text="{{ (article.excerpt or article.title) | e }}"
+         data-share-slug="{{ article.slug }}">
+      <span class="art-share__label">Share</span>
+      <div class="art-share__actions">
+        <a class="art-share__btn" data-share="x" href="#" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a class="art-share__btn" data-share="linkedin" href="#" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn" aria-label="Share on LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a class="art-share__btn" data-share="reddit" href="#" target="_blank" rel="noopener noreferrer" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fa-brands fa-reddit-alien"></i>
+        </a>
+        <button type="button" class="art-share__btn" data-share="copy" title="Copy link" aria-label="Copy link">
+          <i class="fa-solid fa-link"></i>
+          <span class="art-share__btn-txt">Copy</span>
+        </button>
+        <button type="button" class="art-share__btn" data-share="save" title="Save for later" aria-label="Save article">
+          <i class="fa-regular fa-bookmark" data-save-icon></i>
+          <span class="art-share__btn-txt" data-save-label>Save</span>
+        </button>
+        <button type="button" class="art-share__btn art-share__btn--native" data-share="native" title="Share" aria-label="System share" hidden>
+          <i class="fa-solid fa-share-nodes"></i>
+          <span class="art-share__btn-txt">Share</span>
+        </button>
+      </div>
+    </div>
+
     <div class="art-body">
       {{ article.content | safe }}
+    </div>
+
+    <div class="art-share art-share--footer" data-share-bar
+         data-share-title="{{ article.title | e }}"
+         data-share-text="{{ (article.excerpt or article.title) | e }}"
+         data-share-slug="{{ article.slug }}">
+      <span class="art-share__label">Share this brief</span>
+      <div class="art-share__actions">
+        <a class="art-share__btn" data-share="x" href="#" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a class="art-share__btn" data-share="linkedin" href="#" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn" aria-label="Share on LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a class="art-share__btn" data-share="reddit" href="#" target="_blank" rel="noopener noreferrer" title="Share on Reddit" aria-label="Share on Reddit">
+          <i class="fa-brands fa-reddit-alien"></i>
+        </a>
+        <button type="button" class="art-share__btn" data-share="copy" title="Copy link" aria-label="Copy link">
+          <i class="fa-solid fa-link"></i>
+          <span class="art-share__btn-txt">Copy</span>
+        </button>
+        <button type="button" class="art-share__btn" data-share="save" title="Save for later" aria-label="Save article">
+          <i class="fa-regular fa-bookmark" data-save-icon></i>
+          <span class="art-share__btn-txt" data-save-label>Save</span>
+        </button>
+      </div>
     </div>
 
     {% if related %}
