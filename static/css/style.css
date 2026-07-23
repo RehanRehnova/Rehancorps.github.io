@@ -529,7 +529,7 @@ h1, h2, h3, h4, h5, h6,
   .art-banner{aspect-ratio: 16/7; max-height: 160px; margin-bottom: 28px}
 }
 
-/* Contact â€” dragon tail wraps the channel */
+/* Contact — dragon tail wraps the channel */
 .contact{
   position: relative;
   overflow: hidden;
@@ -569,8 +569,8 @@ h1, h2, h3, h4, h5, h6,
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, transparent 0%, transparent 40%, rgba(6,6,6,.55) 75%, #060606 100%),
-    linear-gradient(0deg, #060606 0%, transparent 40%, transparent 70%, rgba(6,6,6,.5) 100%);
+    linear-gradient(90deg, transparent 0%, transparent 40%, rgba(0,0,0,.55) 75%, rgba(0,0,0,.85) 100%),
+    linear-gradient(0deg, rgba(0,0,0,.9) 0%, transparent 40%, transparent 70%, rgba(0,0,0,.55) 100%);
 }
 .contact__inner{
   position: relative;
@@ -1027,8 +1027,36 @@ h1, h2, h3, h4, h5, h6,
   z-index:300;
 }
 
-.contact{position:relative;background:#060606;padding:80px 28px;border-top:1px solid rgba(255,255,255,.06);overflow:hidden}
-.contact::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.06) 20%,rgba(255,255,255,.18) 50%,rgba(255,255,255,.06) 80%,transparent 100%);z-index:3}
+.contact{
+  position:relative;
+  background:
+    linear-gradient(180deg,
+      #000000 0%,
+      #050505 28%,
+      #0a0a0a 55%,
+      #060606 78%,
+      #020202 100%);
+  padding:80px 28px;
+  border-top:1px solid rgba(255,255,255,.06);
+  overflow:hidden;
+}
+.contact::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.06) 20%,rgba(255,255,255,.18) 50%,rgba(255,255,255,.06) 80%,transparent 100%);
+  z-index:3;
+}
+.contact::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55) 0%, transparent 32%, transparent 62%, rgba(0,0,0,.65) 100%),
+    radial-gradient(ellipse 90% 70% at 80% 40%, rgba(0,0,0,.15) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 60% at 10% 90%, rgba(0,0,0,.45) 0%, transparent 50%);
+}
 @media(min-width:900px){.contact{padding:90px 48px}}
 .contact__inner{max-width:1280px;margin:0 auto;display:grid;gap:32px;grid-template-columns:1fr;position:relative;z-index:2}
 @media(min-width:900px){.contact__inner{grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}}
@@ -1983,14 +2011,18 @@ height: 100%;
   gap:12px;
   padding:0 14px;
   height:48px;
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(12,12,14,.45);
+  backdrop-filter:blur(14px) saturate(1.2);
+  -webkit-backdrop-filter:blur(14px) saturate(1.2);
   margin-bottom:14px;
-  transition:border-color .2s, background .2s;
+  transition:border-color .2s, background .2s, box-shadow .2s;
+  box-shadow:0 8px 24px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.04);
 }
 .tools-search:focus-within{
   border-color:rgba(0,224,143,.4);
-  background:rgba(0,224,143,.04);
+  background:rgba(0,224,143,.08);
+  box-shadow:0 8px 28px rgba(0,0,0,.3), 0 0 0 1px rgba(0,224,143,.12), inset 0 1px 0 rgba(255,255,255,.05);
 }
 .tools-search > i{
   color:rgba(255,255,255,.28);
@@ -2257,20 +2289,25 @@ height: 100%;
 .tool-field select,
 .tool-field textarea{
   width:100%;
-  background:#0a0a0a;
-  border:1px solid rgba(255,255,255,.1);
-  color:rgba(255,255,255,.85);
+  background:rgba(10,10,12,.55);
+  backdrop-filter:blur(12px) saturate(1.15);
+  -webkit-backdrop-filter:blur(12px) saturate(1.15);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.9);
   font-family:var(--font-body);
   font-size:13px;
   padding:12px 14px;
   outline:none;
-  transition:border-color .2s;
+  transition:border-color .2s, box-shadow .2s, background .2s;
   border-radius:0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 6px 18px rgba(0,0,0,.2);
 }
 .tool-field input:focus,
 .tool-field select:focus,
 .tool-field textarea:focus{
-  border-color:rgba(255,255,255,.28);
+  border-color:rgba(0,224,143,.35);
+  background:rgba(12,14,14,.62);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 0 0 1px rgba(0,224,143,.12), 0 8px 22px rgba(0,0,0,.25);
 }
 .tool-field textarea{resize:vertical;line-height:1.55;min-height:100px}
 .tool-field select{cursor:pointer}
@@ -2498,7 +2535,33 @@ height: 100%;
 .vault-hero__note{
   font-size:11px;color:rgba(255,255,255,.3);
   font-family:var(--font-body);
+  margin-bottom:10px;
 }
+.vault-hero__legal{
+  max-width:54ch;
+  margin:0 0 4px;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.03);
+  font-size:11.5px;
+  line-height:1.55;
+  color:rgba(255,255,255,.55);
+}
+.vault-hero__legal strong{
+  display:block;
+  color:rgba(255,255,255,.85);
+  margin-bottom:4px;
+  font-size:11px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.vault-hero__legal code{
+  font-size:10px;
+  color:var(--green);
+  background:rgba(0,224,143,.08);
+  padding:1px 5px;
+}
+.vault-hero__legal a{color:var(--green)}
 .vault-btn{
   display:inline-flex;align-items:center;gap:8px;
   height:42px;padding:0 18px;

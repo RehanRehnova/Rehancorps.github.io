@@ -1,4 +1,5 @@
-/* REHNOVA Passfill — popup (lock gate + generator + vault + backup) */
+/* REHNOVA Passfill — popup (lock gate + generator + vault + backup)
+ * Copyright (c) 2026 REHNOVA. All rights reserved. See LICENSE. */
 (function () {
   const $ = (id) => document.getElementById(id);
 

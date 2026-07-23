@@ -1,0 +1,76 @@
+REHNOVA PASSFILL — PROPRIETARY SOFTWARE LICENSE
+Copyright (c) 2026 Rehnova offsec ops. All rights reserved.
+
+Contact: rehnova@proton.me
+Official download: only from the REHNOVA site Passfill / Vault page
+  (e.g. /passfill or /vault on the official deployment).
+
+────────────────────────────────────────────────────────────────────────
+
+1. GRANT OF LICENSE (FREE USE)
+
+   Subject to this License, REHNOVA grants you a personal, non-exclusive,
+   non-transferable, revocable, royalty-free license to:
+   - Download the official Passfill package from the official URL above
+   - Install and use Passfill on devices you control
+   - Use Passfill for personal or internal non-commercial purposes
+
+2. WHAT YOU MAY NOT DO
+
+   Without prior written permission from REHNOVA, you may NOT:
+   a) Redistribute Passfill (or any substantial part of it) as your own
+      product, fork, or “rebranded” extension
+   b) Remove, alter, or obscure copyright, trademark, author, or
+      “REHNOVA” / “Passfill” notices
+   c) Sell, sublicense, rent, or charge for Passfill or access to it
+   d) Claim authorship of Passfill or present it as created by you or
+      your organization
+   e) Publish modified or unmodified copies under another name or brand
+      (including on extension stores, GitHub, or download sites)
+
+3. MODIFICATIONS
+
+   You may modify the code for your own private use on your own devices.
+   You may not distribute modified or unmodified copies to others under
+   any name, except as REHNOVA may allow in writing.
+
+4. OWNERSHIP
+
+   Passfill and all copies remain the intellectual property of REHNOVA.
+   This License does not sell or assign any ownership rights to you.
+   “REHNOVA”, “Passfill”, and related marks are used to identify the
+   official product; you may not use them to brand a competing or
+   redistributed build.
+
+5. NO WARRANTY
+
+   PASSFILL IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR
+   PURPOSE, AND NON-INFRINGEMENT. USE AT YOUR OWN RISK. REHNOVA IS
+   NOT LIABLE FOR ANY DAMAGES ARISING FROM USE OR INABILITY TO USE
+   PASSFILL (INCLUDING LOST CREDENTIALS OR DATA).
+
+6. PRIVACY / LOCAL STORAGE
+
+   Official Passfill is designed so credentials stay on the user’s device
+   and are not uploaded to REHNOVA servers by the extension. This does
+   not limit REHNOVA’s ownership of the software itself.
+
+7. TERMINATION
+
+   This License ends automatically if you breach it. On termination you
+   must stop using redistributed or rebranded copies and destroy
+   unauthorized redistributions you control.
+
+8. COMMERCIAL / OTHER RIGHTS
+
+   For commercial redistribution, white-label, or other rights not
+   granted here, contact: rehnova@proton.me
+
+9. MISCELLANEOUS
+
+   If any provision is unenforceable, the rest remains in effect.
+   This License is the entire agreement for the software grant above.
+
+By downloading, installing, or using Passfill, you accept this License.
+If you do not agree, do not download or use the software.

@@ -1,4 +1,5 @@
-/* REHNOVA Passfill — detect password fields, suggest, save, autofill */
+/* REHNOVA Passfill — detect password fields, suggest, save, autofill
+ * Copyright (c) 2026 REHNOVA. All rights reserved. See LICENSE. */
 (function () {
   if (window.__rehnovaPassfillInjected) return;
   window.__rehnovaPassfillInjected = true;

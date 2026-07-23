@@ -1,29 +1,45 @@
-# REHNOVA Passfill v1.2.0
+# REHNOVA Passfill v1.2.1
 
-**Generate · save · fill** passwords. Free, local-first extension for:
+**Copyright (c) 2026 REHNOVA. All rights reserved.**
 
-- Chrome · Edge · Brave · Arc (load unpacked)
-- Firefox 115+ (temporary add-on, or AMO later)
+Generate · save · fill passwords. Local-first browser extension for Chrome, Edge, Brave, Arc, and Firefox 115+.
 
 | Feature | Detail |
 |--------|--------|
 | Generate | CSPRNG on password fields |
-| Save / fill | Per-site credentials |
-| AES lock | AES-256-GCM + PBKDF2 (310k) |
+| Save / fill | Per-site credentials (you confirm) |
+| AES lock | AES-256-GCM + PBKDF2 |
 | Export / import | JSON backup |
-| Network | None for vault data |
+| Network | No vault upload to REHNOVA |
+
+## License (important)
+
+This is **not** MIT / open-source-for-rebrand.
+
+- **Allowed:** free personal / internal use of the **official** package  
+- **Not allowed:** redistribute, rebrand, resell, or claim authorship  
+
+Full terms: see **`LICENSE`** and **`COPYRIGHT`** in this folder.
+
+Contact for other rights: **rehnova@proton.me**
+
+## Official download only
+
+Install only from the REHNOVA site **Passfill** page (`/passfill` or `/vault` on the official deployment).  
+Packages from random mirrors may be modified or unsafe.
 
 ## Install
 
-Site page: `/passfill` or `/vault`  
-Zip: `static/downloads/rehnova-passfill.zip`
+See the site install guide, or:
 
-## Contact
+1. Unzip so `manifest.json` is at the folder root  
+2. Chrome/Edge/Brave: `chrome://extensions` → Developer mode → Load unpacked  
+3. Firefox: `about:debugging#/runtime/this-firefox` → Load Temporary Add-on → `manifest.json`
 
-rehnova@proton.me
-
-## Pack
+## Pack (maintainers)
 
 ```powershell
 .\extension\pack.ps1
 ```
+
+Produces `static/downloads/rehnova-passfill.zip` including LICENSE + COPYRIGHT.

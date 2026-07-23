@@ -1,4 +1,5 @@
 # Build Passfill zip for site download (Chrome + Firefox same package)
+# Always includes LICENSE + COPYRIGHT.
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $repo = Split-Path -Parent $root
@@ -11,6 +12,12 @@ $outLegacy = Join-Path $outStaticDir "rehnova-vault.zip"
 
 if (-not (Test-Path $outStaticDir)) {
   New-Item -ItemType Directory -Path $outStaticDir | Out-Null
+}
+
+foreach ($required in @("LICENSE", "COPYRIGHT", "manifest.json")) {
+  if (-not (Test-Path (Join-Path $root $required))) {
+    throw "Missing required file: $required - refuse to pack without license."
+  }
 }
 
 $stage = Join-Path $env:TEMP "rehnova-passfill-pack-$ver"
@@ -27,6 +34,8 @@ $include = @(
   "popup.css",
   "privacy.html",
   "README.md",
+  "LICENSE",
+  "COPYRIGHT",
   "lib",
   "icons"
 )
@@ -53,9 +62,10 @@ Remove-Item $stage -Recurse -Force
 
 Copy-Item (Join-Path $root "privacy.html") (Join-Path $outStaticDir "passfill-privacy.html") -Force
 Copy-Item (Join-Path $root "privacy.html") (Join-Path $outStaticDir "vault-privacy.html") -Force
+Copy-Item (Join-Path $root "LICENSE") (Join-Path $outStaticDir "passfill-LICENSE.txt") -Force
 
 Write-Host ""
-Write-Host "OK  $outStatic"
+Write-Host "OK  $outStatic  (v$ver + LICENSE)"
 Write-Host "OK  $outRoot"
 Write-Host "Install page: /passfill  or  /vault"
 Write-Host ""

@@ -1,4 +1,5 @@
-/* REHNOVA Passfill — service worker (Chrome / Edge / Brave / Firefox) */
+/* REHNOVA Passfill — service worker (Chrome / Edge / Brave / Firefox)
+ * Copyright (c) 2026 REHNOVA. All rights reserved. See LICENSE. */
 importScripts('lib/crypto.js', 'lib/vault.js');
 
 const Vault = self.RehnovaVault;
