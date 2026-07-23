@@ -1,0 +1,9 @@
+﻿.env
+credentials.json
+__pycache__/
+*.pyc
+venv/
+.vercel
+
+spreadsheet_id.txt
+

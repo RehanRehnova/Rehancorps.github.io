@@ -1,12 +1,45 @@
 /* REHNOVA Passfill — service worker (Chrome / Edge / Brave / Firefox)
  * Copyright (c) 2026 REHNOVA. All rights reserved. See LICENSE. */
-importScripts('lib/crypto.js', 'lib/vault.js');
+importScripts('config.js', 'lib/crypto.js', 'lib/vault.js');
 
 const Vault = self.RehnovaVault;
+const PINGED_KEY = 'passfill_install_counted';
 
 chrome.runtime.onInstalled.addListener((details) => {
   console.log('[Passfill]', details.reason, '— local AES vault ready');
+  if (details.reason === 'install') {
+    countInstall().catch(function () {});
+  }
 });
+
+async function countInstall() {
+  var enable = true;
+  var ns = 'rehnova';
+  var key = 'passfill-installs';
+  try {
+    if (typeof PASSFILL_COUNT_ENABLE === 'boolean') enable = PASSFILL_COUNT_ENABLE;
+    if (typeof PASSFILL_COUNT_NS === 'string' && PASSFILL_COUNT_NS) ns = PASSFILL_COUNT_NS;
+    if (typeof PASSFILL_COUNT_KEY === 'string' && PASSFILL_COUNT_KEY) key = PASSFILL_COUNT_KEY;
+  } catch (_) {}
+  if (!enable) return;
+
+  var already = await new Promise(function (resolve) {
+    chrome.storage.local.get([PINGED_KEY], function (res) {
+      resolve(!!res[PINGED_KEY]);
+    });
+  });
+  if (already) return;
+
+  var url = 'https://api.counterapi.dev/v1/' + encodeURIComponent(ns) + '/' + encodeURIComponent(key) + '/up';
+  try {
+    var res = await fetch(url, { method: 'GET' });
+    if (res.ok) {
+      chrome.storage.local.set({ [PINGED_KEY]: true });
+    }
+  } catch (_) {
+    /* offline — ignore */
+  }
+}
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   handle(msg)

@@ -36,6 +36,24 @@ See the site install guide, or:
 2. Chrome/Edge/Brave: `chrome://extensions` → Developer mode → Load unpacked  
 3. Firefox: `about:debugging#/runtime/this-firefox` → Load Temporary Add-on → `manifest.json`
 
+## Install count
+
+On first install, Passfill hits a free public counter (+1). No passwords or sites.
+Disable in `config.js`: `PASSFILL_COUNT_ENABLE = false`.
+
+## Publishing a review
+
+1. User submits form on `/passfill` → email to rehnova@proton.me  
+2. Add to `data/passfill_reviews.json` and push:
+
+```json
+{
+  "reviews": [
+    { "name": "Ops", "rating": 5, "body": "Solid.", "date": "2026-07-23" }
+  ]
+}
+```
+
 ## Pack (maintainers)
 
 ```powershell

@@ -20,12 +20,30 @@
         class="vault-btn vault-btn--solid"
         href="{{ url_for('static', filename='downloads/rehnova-passfill.zip') }}"
         download="rehnova-passfill.zip"
+        data-pf-download
       >
         <i class="fa-solid fa-download" aria-hidden="true"></i>
         Download free
       </a>
+      <a href="#community" class="vault-rating-pill" id="vault-rating-pill" {% if not pf_reviews %}hidden{% endif %}>
+        <span class="vault-rating-pill__stars" id="stat-avg-stars" aria-hidden="true">★★★★★</span>
+        <span class="vault-rating-pill__avg" id="stat-avg">—</span>
+        <span class="vault-rating-pill__sep">·</span>
+        <span class="vault-rating-pill__n"><span id="stat-reviews">{{ pf_review_count|default(0) }}</span> reviews</span>
+      </a>
       <a class="vault-btn" href="#install">Install steps</a>
+      <a class="vault-btn vault-btn--quiet" href="#community">Reviews</a>
       <a class="vault-btn vault-btn--quiet" href="#why">Why this way</a>
+    </div>
+    <div class="vault-stats" id="vault-stats" aria-live="polite">
+      <div class="vault-stats__item">
+        <span class="vault-stats__n" id="stat-installs">{{ pf_installs|default(0) }}</span>
+        <span class="vault-stats__l">installs</span>
+      </div>
+      <div class="vault-stats__item">
+        <span class="vault-stats__n" id="stat-downloads">{{ pf_downloads|default(0) }}</span>
+        <span class="vault-stats__l">downloads</span>
+      </div>
     </div>
     <p class="vault-hero__note">
       Free forever. No store fee. No REHNOVA account.
@@ -79,6 +97,7 @@
             class="vault-btn vault-btn--solid vault-btn--sm"
             href="{{ url_for('static', filename='downloads/rehnova-passfill.zip') }}"
             download="rehnova-passfill.zip"
+            data-pf-download
           >Download rehnova-passfill.zip</a>
           <p class="vault-step__tip">
             Why a zip? Browsers install from a folder of files. The package is one zip for a single download —
@@ -362,10 +381,52 @@
     </div>
   </section>
 
+  {# ── Community: counters + self-hosted reviews (stars + feedback only) ── #}
+  <section class="vault-community" id="community">
+    <h2 class="vault-install__h">Community</h2>
+    <p class="vault-install__lead">
+      Installs &amp; downloads are public counters (no passwords, no sites).
+      Reviews: <strong>stars + feedback only</strong> — no third-party form maze.
+    </p>
+
+    <div class="vault-slider" id="pf-reviews" aria-roledescription="carousel" aria-label="User reviews">
+      <p class="vault-reviews__empty">Loading reviews…</p>
+    </div>
+
+    <form
+      class="vault-review-form"
+      id="pf-review-form"
+      data-email="{{ review_email|default('rehnova@proton.me') }}"
+      data-web3key="{{ web3forms_key|default('') }}"
+    >
+      <label class="vault-review-form__field vault-review-form__field--full">
+        <span>Rating</span>
+        <div class="vault-stars" id="pf-stars" role="radiogroup" aria-label="Star rating">
+          {% for n in range(1, 6) %}
+          <button type="button" class="vault-stars__btn{% if n <= 5 %} is-on{% endif %}" data-n="{{ n }}" role="radio" aria-label="{{ n }} stars" aria-checked="{% if n == 5 %}true{% else %}false{% endif %}">★</button>
+          {% endfor %}
+        </div>
+        <input type="hidden" name="rating" id="pf-rating" value="5">
+      </label>
+      <label class="vault-review-form__field vault-review-form__field--full">
+        <span>Feedback</span>
+        <textarea name="body" id="pf-body" rows="4" maxlength="800" required placeholder="What worked? What should improve?"></textarea>
+      </label>
+      <label class="vault-review-form__field vault-review-form__field--full vault-review-form__optional">
+        <span>Name <em>(optional)</em></span>
+        <input type="text" name="name" id="pf-name" maxlength="40" placeholder="Anon" autocomplete="nickname">
+      </label>
+      <div class="vault-review-form__actions">
+        <button type="submit" class="vault-btn vault-btn--solid" id="pf-submit">Submit</button>
+        <p class="vault-review-form__msg" id="pf-msg" role="status"></p>
+      </div>
+    </form>
+  </section>
+
   <section class="vault-faq">
     <h2>Privacy</h2>
     <p>
-      Local vault only. No REHNOVA cloud sync. Optional AES master lock.
+      Vault data stays local. Install count is a public +1 only (no personal data).
       <a href="{{ url_for('static', filename='downloads/passfill-privacy.html') }}">policy</a>
       ·
       <a href="{{ url_for('tools') }}">tools</a>
@@ -377,6 +438,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="{{ url_for('static', filename='js/passfill-community.js') }}"></script>
 <script>
 (function () {
   var ua = navigator.userAgent || '';
@@ -431,7 +493,6 @@
   if (isFF && ff) ff.classList.add('is-you');
   else if (cr) cr.classList.add('is-you');
 
-  /* Why accordion: one open at a time */
   var acc = document.getElementById('why-acc');
   if (acc) {
     acc.querySelectorAll('details.vault-acc__item').forEach(function (d) {

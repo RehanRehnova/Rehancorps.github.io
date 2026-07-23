@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "REHNOVA Passfill",
   "short_name": "Passfill",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Generate strong passwords on signup fields, save logins, autofill on return. AES-GCM locked vault. 100% local — Chrome, Edge, Brave, Firefox. © REHNOVA.",
   "author": "REHNOVA",
   "permissions": ["storage", "activeTab", "scripting"],

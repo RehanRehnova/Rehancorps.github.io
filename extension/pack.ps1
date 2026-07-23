@@ -26,6 +26,7 @@ New-Item -ItemType Directory -Path $stage | Out-Null
 
 $include = @(
   "manifest.json",
+  "config.js",
   "background.js",
   "content.js",
   "content.css",

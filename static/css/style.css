@@ -3174,3 +3174,394 @@ height: 100%;
   border-color:var(--green);
   background:rgba(0,224,143,.14);
 }
+/* Passfill community stats + reviews */
+.vault-stats{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin:18px 0 8px;
+}
+.vault-stats__item{
+  min-width:88px;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.03);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.vault-stats__n{
+  display:block;
+  font-family:var(--font-display);
+  font-size:22px;font-weight:800;
+  color:#fff;
+  letter-spacing:-.02em;
+  line-height:1.1;
+}
+.vault-stats__l{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+  margin-top:4px;
+  display:block;
+}
+
+.vault-community{margin:48px 0 40px}
+.vault-reviews{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.vault-reviews__empty{
+  font-size:13px;color:rgba(255,255,255,.4);margin:0;
+  padding:16px;border:1px dashed rgba(255,255,255,.12);
+}
+.vault-review{
+  padding:14px 16px;
+  border:1px solid rgba(255,255,255,.09);
+  background:rgba(255,255,255,.03);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.vault-review__top{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+  margin-bottom:8px;
+}
+.vault-review__name{
+  font-size:13px;font-weight:700;color:#fff;
+}
+.vault-review__stars{
+  font-size:12px;letter-spacing:2px;color:var(--green);
+}
+.vault-review__date{
+  font-size:11px;color:rgba(255,255,255,.3);
+  margin-left:auto;
+}
+.vault-review__body{
+  margin:0;font-size:13px;line-height:1.55;
+  color:rgba(255,255,255,.7);
+}
+
+.vault-review-form{
+  padding:18px 16px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(0,0,0,.35);
+}
+.vault-review-form__row{
+  display:grid;gap:12px;
+  grid-template-columns:1fr 1fr;
+  margin-bottom:12px;
+}
+@media(max-width:560px){
+  .vault-review-form__row{grid-template-columns:1fr}
+}
+.vault-review-form__field{
+  display:flex;flex-direction:column;gap:6px;
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);
+}
+.vault-review-form__field--full{margin-bottom:12px}
+.vault-review-form__field input,
+.vault-review-form__field select,
+.vault-review-form__field textarea{
+  width:100%;
+  box-sizing:border-box;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(12,12,14,.55);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  color:#fff;
+  font-family:var(--font-body);
+  font-size:13px;
+  letter-spacing:0;
+  text-transform:none;
+  padding:10px 12px;
+  outline:none;
+}
+.vault-review-form__field textarea{resize:vertical;min-height:96px;line-height:1.5}
+.vault-review-form__field input:focus,
+.vault-review-form__field select:focus,
+.vault-review-form__field textarea:focus{
+  border-color:rgba(0,224,143,.4);
+}
+.vault-review-form__actions{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+}
+.vault-review-form__msg{
+  margin:0;font-size:12px;color:rgba(255,255,255,.5);
+  font-family:var(--font-body),monospace;
+}
+
+/* Senja / Testimonial.to wall */
+.vault-tt-cta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;
+  margin:0 0 20px;
+}
+.vault-tt-cta__hint{
+  font-size:12px;color:rgba(255,255,255,.4);
+}
+.vault-tt-wall{
+  min-height:80px;
+  margin-bottom:8px;
+}
+.vault-tt-iframe{
+  width:100%;
+  min-height:420px;
+  border:0;
+  background:transparent;
+  display:block;
+}
+.vault-tt-setup{
+  padding:20px 18px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.03);
+}
+.vault-tt-setup__h{
+  margin:0 0 12px;
+  font-family:var(--font-display);
+  font-size:14px;font-weight:700;
+  color:#fff;
+}
+.vault-tt-setup__ol{
+  margin:0 0 14px 18px;
+  padding:0;
+  font-size:13px;line-height:1.65;
+  color:rgba(255,255,255,.65);
+}
+.vault-tt-setup__ol a{color:var(--green)}
+.vault-tt-setup__ol code{
+  font-size:11px;color:var(--green);
+  background:rgba(0,224,143,.08);padding:1px 5px;
+}
+.vault-tt-setup__pre{
+  margin:10px 0 0;
+  padding:12px 14px;
+  overflow-x:auto;
+  font-size:11px;line-height:1.5;
+  color:rgba(255,255,255,.75);
+  background:#050505;
+  border:1px solid rgba(255,255,255,.08);
+  font-family:var(--font-body),ui-monospace,monospace;
+  white-space:pre;
+}
+.vault-tt-setup__note{
+  margin:0;font-size:12px;color:rgba(255,255,255,.4);
+}
+.vault-tt-setup__note a{color:var(--green)}
+.senja-embed{width:100%;min-height:200px}
+
+/* Star rating — LTR 1-5 */
+.vault-stars{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:6px;
+  margin-top:6px;
+}
+.vault-stars__btn{
+  appearance:none;border:none;background:transparent;
+  font-size:30px;line-height:1;cursor:pointer;
+  color:rgba(255,255,255,.18);
+  padding:0 2px;
+  transition:color .12s, transform .12s;
+}
+.vault-stars__btn.is-on{
+  color:var(--green);
+  text-shadow:0 0 12px rgba(0,224,143,.35);
+}
+.vault-stars__btn:hover{
+  transform:scale(1.12);
+  color:var(--green);
+}
+.vault-stars__btn:active{transform:scale(1.05)}
+.vault-review-form__optional em{
+  font-style:normal;text-transform:none;letter-spacing:0;
+  color:rgba(255,255,255,.28);font-size:10px;
+}
+
+
+/* Rating pill near download */
+.vault-rating-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:42px;
+  padding:0 14px;
+  border:1px solid rgba(0,224,143,.28);
+  background:linear-gradient(180deg, rgba(0,224,143,.1), rgba(0,0,0,.25));
+  backdrop-filter:blur(12px) saturate(1.15);
+  -webkit-backdrop-filter:blur(12px) saturate(1.15);
+  color:rgba(255,255,255,.85);
+  text-decoration:none;
+  font-size:12px;
+  transition:border-color .2s, background .2s, box-shadow .2s;
+  box-shadow:0 8px 24px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.vault-rating-pill:hover{
+  border-color:rgba(0,224,143,.5);
+  background:linear-gradient(180deg, rgba(0,224,143,.14), rgba(0,0,0,.3));
+}
+.vault-rating-pill__stars{
+  color:var(--green);
+  letter-spacing:1px;
+  font-size:13px;
+  text-shadow:0 0 12px rgba(0,224,143,.35);
+}
+.vault-rating-pill__avg{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:14px;
+  color:#fff;
+}
+.vault-rating-pill__sep{color:rgba(255,255,255,.25)}
+.vault-rating-pill__n{color:rgba(255,255,255,.45);font-size:11px;letter-spacing:.04em}
+
+/* Sliding dark-faded testimonials */
+.vault-slider{
+  position:relative;
+  margin:0 0 28px;
+}
+.vault-slider__viewport{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    radial-gradient(ellipse 80% 90% at 10% 0%, rgba(0,224,143,.06), transparent 55%),
+    linear-gradient(165deg, rgba(18,18,22,.75) 0%, rgba(6,6,8,.9) 100%);
+  backdrop-filter:blur(16px) saturate(1.15);
+  -webkit-backdrop-filter:blur(16px) saturate(1.15);
+  box-shadow:0 20px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+  min-height:200px;
+}
+.vault-slider__track{
+  display:flex;
+  width:100%;
+  transition:transform .65s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.vault-slide{
+  flex:0 0 100%;
+  min-width:100%;
+  width:100%;
+  box-sizing:border-box;
+  padding:28px 28px 32px;
+  position:relative;
+  opacity:.45;
+  transition:opacity .55s ease;
+}
+.vault-slide.is-active{opacity:1}
+.vault-slide__glow{
+  position:absolute;
+  inset:auto -20% -40% -20%;
+  height:70%;
+  background:radial-gradient(ellipse at center, rgba(0,224,143,.08), transparent 65%);
+  pointer-events:none;
+}
+.vault-slide__quote{
+  position:absolute;
+  top:8px;left:18px;
+  font-family:Georgia, serif;
+  font-size:72px;
+  line-height:1;
+  color:rgba(0,224,143,.12);
+  pointer-events:none;
+  user-select:none;
+}
+.vault-slide__stars{
+  position:relative;
+  z-index:1;
+  color:var(--green);
+  letter-spacing:3px;
+  font-size:15px;
+  margin-bottom:14px;
+  text-shadow:0 0 16px rgba(0,224,143,.3);
+}
+.vault-slide__body{
+  position:relative;
+  z-index:1;
+  margin:0 0 22px;
+  font-size:15px;
+  line-height:1.7;
+  color:rgba(255,255,255,.78);
+  max-width:42ch;
+  min-height:3.4em;
+}
+.vault-slide__foot{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.vault-slide__avatar{
+  width:40px;height:40px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(0,224,143,.35);
+  background:linear-gradient(145deg, rgba(0,224,143,.18), rgba(0,0,0,.4));
+  color:var(--green);
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:15px;
+  flex-shrink:0;
+}
+.vault-slide__meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.vault-slide__name{
+  font-size:13px;font-weight:700;color:#fff;
+}
+.vault-slide__date{
+  font-size:11px;color:rgba(255,255,255,.32);
+  font-family:var(--font-body),monospace;
+}
+.vault-slider__nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  width:36px;height:36px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(8px);
+  color:rgba(255,255,255,.7);
+  font-size:22px;line-height:1;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s, color .2s, background .2s;
+}
+.vault-slider__nav:hover{
+  border-color:rgba(0,224,143,.4);
+  color:var(--green);
+  background:rgba(0,0,0,.6);
+}
+.vault-slider__nav--prev{left:10px}
+.vault-slider__nav--next{right:10px}
+.vault-slider__dots{
+  display:flex;justify-content:center;gap:8px;
+  margin-top:14px;
+}
+.vault-slider__dot{
+  width:7px;height:7px;
+  border-radius:50%;
+  border:none;
+  padding:0;
+  background:rgba(255,255,255,.18);
+  cursor:pointer;
+  transition:background .2s, transform .2s, box-shadow .2s;
+}
+.vault-slider__dot.is-on{
+  background:var(--green);
+  transform:scale(1.25);
+  box-shadow:0 0 10px rgba(0,224,143,.45);
+}
+.vault-reviews__empty{
+  margin:0;
+  padding:28px 18px;
+  text-align:center;
+  font-size:13px;
+  color:rgba(255,255,255,.4);
+  border:1px dashed rgba(255,255,255,.1);
+  background:rgba(0,0,0,.25);
+}
+@media(max-width:560px){
+  .vault-slide{padding:22px 18px 26px}
+  .vault-slide__body{font-size:14px}
+  .vault-slider__nav{width:32px;height:32px;font-size:18px}
+  .vault-slider__nav--prev{left:6px}
+  .vault-slider__nav--next{right:6px}
+  .vault-rating-pill{height:38px;padding:0 12px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  .vault-slider__track{transition:none}
+}
