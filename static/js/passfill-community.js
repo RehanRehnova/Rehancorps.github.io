@@ -1,9 +1,5 @@
-/* Passfill community — counters, review form, sliding testimonial wall */
+/* Passfill community — review form + sliding testimonial wall */
 (function () {
-  var NS = 'rehnova';
-  var KEY_INSTALLS = 'passfill-installs';
-  var KEY_DOWNLOADS = 'passfill-downloads';
-  var BASE = 'https://api.counterapi.dev/v1/' + NS + '/';
   var slideTimer = null;
   var slideIndex = 0;
   var lastList = [];
@@ -17,49 +13,6 @@
     if (!el) return;
     if (typeof n === 'number' && !isNaN(n)) el.textContent = String(n);
   }
-
-  function getCount(key) {
-    return fetch(BASE + key + '/', { method: 'GET', mode: 'cors' })
-      .then(function (r) {
-        return r.json();
-      })
-      .then(function (j) {
-        var c = j && (j.count != null ? j.count : j.value);
-        return typeof c === 'number' ? c : parseInt(c, 10) || 0;
-      })
-      .catch(function () {
-        return null;
-      });
-  }
-
-  function bump(key) {
-    return fetch(BASE + key + '/up', { method: 'GET', mode: 'cors' })
-      .then(function (r) {
-        return r.json();
-      })
-      .then(function (j) {
-        var c = j && (j.count != null ? j.count : j.value);
-        return typeof c === 'number' ? c : parseInt(c, 10) || 0;
-      })
-      .catch(function () {
-        return null;
-      });
-  }
-
-  getCount(KEY_INSTALLS).then(function (n) {
-    if (n != null) setStat('stat-installs', n);
-  });
-  getCount(KEY_DOWNLOADS).then(function (n) {
-    if (n != null) setStat('stat-downloads', n);
-  });
-
-  document.querySelectorAll('[data-pf-download]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      bump(KEY_DOWNLOADS).then(function (n) {
-        if (n != null) setStat('stat-downloads', n);
-      });
-    });
-  });
 
   /* ── Form stars ── */
   var stars = $('pf-stars');

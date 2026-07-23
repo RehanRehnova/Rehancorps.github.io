@@ -35,16 +35,6 @@
       <a class="vault-btn vault-btn--quiet" href="#community">Reviews</a>
       <a class="vault-btn vault-btn--quiet" href="#why">Why this way</a>
     </div>
-    <div class="vault-stats" id="vault-stats" aria-live="polite">
-      <div class="vault-stats__item">
-        <span class="vault-stats__n" id="stat-installs">{{ pf_installs|default(0) }}</span>
-        <span class="vault-stats__l">installs</span>
-      </div>
-      <div class="vault-stats__item">
-        <span class="vault-stats__n" id="stat-downloads">{{ pf_downloads|default(0) }}</span>
-        <span class="vault-stats__l">downloads</span>
-      </div>
-    </div>
     <p class="vault-hero__note">
       Free forever. No store fee. No REHNOVA account.
       © 2026 REHNOVA — free to use, not free to rebrand or redistribute as yours.
@@ -385,8 +375,7 @@
   <section class="vault-community" id="community">
     <h2 class="vault-install__h">Community</h2>
     <p class="vault-install__lead">
-      Installs &amp; downloads are public counters (no passwords, no sites).
-      Reviews: <strong>stars + feedback only</strong> — no third-party form maze.
+      Reviews: <strong>stars + feedback only</strong> — you approve what goes public.
     </p>
 
     <div class="vault-slider" id="pf-reviews" aria-roledescription="carousel" aria-label="User reviews">
@@ -426,7 +415,7 @@
   <section class="vault-faq">
     <h2>Privacy</h2>
     <p>
-      Vault data stays local. Install count is a public +1 only (no personal data).
+      Vault data stays local. No personal data is collected by REHNOVA for reviews or downloads.
       <a href="{{ url_for('static', filename='downloads/passfill-privacy.html') }}">policy</a>
       ·
       <a href="{{ url_for('tools') }}">tools</a>

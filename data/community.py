@@ -1,8 +1,5 @@
-"""Passfill stats — install/download counts via CounterAPI (JS)."""
+"""Passfill page community context (stats removed from UI)."""
 
 
 def community_page_context():
-    return {
-        'pf_installs': 0,
-        'pf_downloads': 0,
-    }
+    return {}
