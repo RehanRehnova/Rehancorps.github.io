@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}404 — not found · rehnova{% endblock %}
+
+{% block content %}
+<section class="nf-page">
+  <div class="nf-dragon" aria-hidden="true">
+    <img
+      src="{{ url_for('static', filename='images/dragon-services.jpg') }}"
+      alt=""
+      class="nf-dragon__img"
+      decoding="async"
+    >
+    <span class="nf-dragon__veil"></span>
+  </div>
+
+  <div class="nf-core">
+    <p class="nf-code">404</p>
+    <h1 class="nf-h1">Not found</h1>
+    <p class="nf-p">This path isn’t on the map.</p>
+    <div class="nf-actions">
+      <a href="{{ url_for('home') }}" class="nf-btn nf-btn--solid">Home</a>
+      <a href="{{ url_for('tools') }}" class="nf-btn">Tools</a>
+      <a href="{{ url_for('vault') }}" class="nf-btn">Passfill</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

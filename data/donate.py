@@ -7,13 +7,13 @@ Order on page: USDT → ETH → BTC.
 DONATE_CONTACT = "rehnova@proton.me"
 
 # Paste real receiving addresses (public). Wrong network/address = lost funds.
-USDT_ADDRESS = "fsdfsdg"  # TRC20 / ERC20 / etc. — set network label below
+USDT_ADDRESS = "TA5E2ZPmd8A66YFqr9gwqMsfQu8gr6xFmw"  # TRC20 / ERC20 / etc. — set network label below
 USDT_NETWORK = "TRC20 (Tron)"  # change if you use ERC20, BEP20, etc.
 
-ETH_ADDRESS = "sdgdgds"  # 0x...
+ETH_ADDRESS = "0x2ab65735f0be66df85b78655b990913536a388d2"  # 0x...
 ETH_NETWORK = "Ethereum mainnet"
 
-BTC_ADDRESS = "dgsdgsg"  # bc1... / 1... / 3...
+BTC_ADDRESS = "1DMkzvYtjKp4EK9NvPAcQzWg94FXgJ5dXF "  # bc1... / 1... / 3...
 BTC_NETWORK = "Bitcoin (on-chain)"
 
 
