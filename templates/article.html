@@ -35,14 +35,16 @@
     </header>
 
     {% if article.thumbnail %}
-    <figure class="art-hero">
+    <figure class="art-hero{% if article.thumbnail_mode == 'free' %} art-hero--free{% endif %}">
       <img
         src="{% if article.thumbnail.startswith('http') %}{{ article.thumbnail }}{% else %}{{ url_for('static', filename=article.thumbnail) }}{% endif %}"
         alt="{{ article.title }}"
         class="art-hero__img"
         decoding="async"
       >
+      {% if article.thumbnail_mode != 'free' %}
       <span class="art-hero__edge" aria-hidden="true"></span>
+      {% endif %}
     </figure>
     {% endif %}
 

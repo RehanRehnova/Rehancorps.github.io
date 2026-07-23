@@ -63,6 +63,13 @@ def _load_post(filepath):
 
     slug = post.get('slug') or os.path.splitext(os.path.basename(filepath))[0]
 
+    # thumbnail_mode: "cover" (default framed crop) | "free" (full image, no frame, page-blend)
+    mode = str(post.get('thumbnail_mode') or post.get('hero_mode') or 'cover').strip().lower()
+    if mode in ('free', 'contain', 'bare', 'float', 'blend'):
+        mode = 'free'
+    else:
+        mode = 'cover'
+
     return {
         'slug': slug,
         'title': post.get('title', slug),
@@ -72,6 +79,7 @@ def _load_post(filepath):
         'excerpt': post.get('excerpt', ''),
         'content': html_content,
         'thumbnail': post.get('thumbnail', ''),
+        'thumbnail_mode': mode,
         'author': post.get('author', 'Anonymous'),
         'author_role': post.get('author_role', 'Offensive Operator'),
         'tags': post.get('tags', []) or [],

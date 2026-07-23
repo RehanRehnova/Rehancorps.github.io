@@ -38,7 +38,7 @@
        data-featured="{{ '1' if article.featured else '0' }}">
 
       {% if article.thumbnail %}
-      <div class="art-row__media">
+      <div class="art-row__media{% if article.thumbnail_mode == 'free' %} art-row__media--free{% endif %}">
         <img
           src="{% if article.thumbnail.startswith('http') %}{{ article.thumbnail }}{% else %}{{ url_for('static', filename=article.thumbnail) }}{% endif %}"
           alt=""
@@ -46,7 +46,9 @@
           loading="lazy"
           decoding="async"
         >
+        {% if article.thumbnail_mode != 'free' %}
         <span class="art-row__media-fade" aria-hidden="true"></span>
+        {% endif %}
       </div>
       {% endif %}
 

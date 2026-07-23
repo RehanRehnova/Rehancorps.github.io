@@ -4,7 +4,8 @@ slug: password-reuse-credential-stuffing
 date: 2026-07-23
 category: Identity
 excerpt: Most account takeovers are not elite zero-days. They are credential stuffing — one leak, one reused password, many hijacked services. Here is why unique passwords matter, and how REHNOVA Passfill keeps generation and storage local on your machine.
-thumbnail: images/articles/password-reuse-breaches.jpg
+thumbnail: https://images.ctfassets.net/slt3lc6tev37/7063QaY9i4PTXesgUmpoYk/cd8e741be8731bca5494bc14d03a134c/credential-stuffing.png
+thumbnail_mode: free
 author: Anonymous
 author_role: Offensive Operator
 tags: [Identity, Passwords, Credential Stuffing, Passfill]
@@ -35,7 +36,7 @@ Security teams and public reports have repeated the same lesson for years:
 
 You do not need every service to be "hacked." You need **one** bad day for a site you used, plus the habit of reusing the same secret.
 
-![Research desk with breach reports and login research](/static/images/articles/password-reuse-breaches.jpg)
+![Research desk with breach reports and login research](https://www.imperva.com/learn/wp-content/uploads/sites/13/2020/01/credentials.png)
 
 *The problem is documented in plain language across industry reports: credentials leak, then travel.*
 
